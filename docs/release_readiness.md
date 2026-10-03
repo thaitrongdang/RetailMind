@@ -15,7 +15,8 @@ This checklist records observed state after merged `main` commit `96cfb1e61bc486
 | Fresh Python environment, fixture tests and lint | `done` | Locked install of 37 packages; 11 tests and Ruff passed locally. |
 | GitHub CI on merged main | `done` | [CI run 37133659899](https://github.com/thaitrongdang/RetailMind/actions/runs/37133659899) succeeded on `96cfb1e`. |
 | Local API benchmark | `done` | `reports/api_benchmark.json`; p95 109.029 ms over 200 sequential loopback requests, 20 warmups, one worker. |
-| Docker build and Compose launch | `blocked` | Docker, Podman and nerdctl unavailable on this host. Build and exercise `compose.yaml` on a Docker host. |
+| Docker image build and API import | `done` | [CI run 37134339279](https://github.com/thaitrongdang/RetailMind/actions/runs/37134339279) passed `container-build` on PR #13. |
+| Compose launch with real mounted bundles | `blocked` | Docker, Podman and nerdctl unavailable on this host; test `compose.yaml` on a Docker host with locally built snapshot/model artifacts. |
 | Final screenshots/video and public V1 release | `planned` | Capture and review after final design, browser and container checks. No tag/release yet. |
 
 **Current boundary:** Backend and provisional UI are usable locally. The project must not be described as fully complete V1 or released until final design integration and applicable verification pass. Public hosting remains optional and needs an explicit destination/cost decision.

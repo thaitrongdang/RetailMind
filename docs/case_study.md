@@ -44,6 +44,6 @@ A fresh locked CPython 3.11 environment passed 11 fixture tests and Ruff lint. G
 
 ## Limits and next work
 
-The source is historical and represents one retailer with many wholesale-like purchases. It has no impression logs, live inventory, A/B assignment or online feedback. Offline overlap cannot establish click-through rate, conversion, revenue uplift or causal impact. Duplicate sensitivity and performance on a different store remain unmeasured. The final owner-supplied UI, visual browser checks, Docker build, demo recording and release are pending, so this draft is not yet a completed public V1 case study.
+The source is historical and represents one retailer with many wholesale-like purchases. It has no impression logs, live inventory, A/B assignment or online feedback. Offline overlap cannot establish click-through rate, conversion, revenue uplift or causal impact. Duplicate sensitivity and performance on a different store remain unmeasured. The final owner-supplied UI, visual browser checks, real-bundle Docker Compose launch, demo recording and release are pending, so this draft is not yet a completed public V1 case study.
 
 Reproduction and detailed evidence: `README.md`, `reports/data_manifest.json`, `reports/data_quality.json`, `reports/validation_selection.json`, `reports/test_metrics.json`, `reports/model_card.md`, `reports/error_analysis.md` and `reports/api_benchmark.json`.
