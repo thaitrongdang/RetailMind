@@ -1,0 +1,32 @@
+{
+  "test": {
+    "counts": {
+      "candidate_products": 4595,
+      "customers": 5633,
+      "future_customers": 1660,
+      "future_identified_lines": 64301,
+      "history_analytics_lines": 928987,
+      "history_identified_lines": 721108,
+      "interactions": 439624
+    },
+    "cutoff": "2011-11-01T00:00:00",
+    "outcome_end_exclusive": "2011-12-01T00:00:00",
+    "snapshot_id": "test-20111101-bcbe73b35f5b-1cfa8347816f",
+    "source_hash": "bcbe73b35f5b7babf197fb0cb983a11f5d9ff929078d4aa53d171b1f2df2e980"
+  },
+  "validation": {
+    "counts": {
+      "candidate_products": 4405,
+      "customers": 5224,
+      "future_customers": 1259,
+      "future_identified_lines": 39870,
+      "history_analytics_lines": 820859,
+      "history_identified_lines": 631871,
+      "interactions": 387138
+    },
+    "cutoff": "2011-09-01T00:00:00",
+    "outcome_end_exclusive": "2011-10-01T00:00:00",
+    "snapshot_id": "validation-20110901-bcbe73b35f5b-b995de65bce5",
+    "source_hash": "bcbe73b35f5b7babf197fb0cb983a11f5d9ff929078d4aa53d171b1f2df2e980"
+  }
+}

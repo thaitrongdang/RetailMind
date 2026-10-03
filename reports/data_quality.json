@@ -1,0 +1,16 @@
+{
+  "max_valid_invoice_date": "2011-12-09 12:50:00",
+  "min_valid_invoice_date": "2009-12-01 07:45:00",
+  "reason_counts": {
+    "cancellation": 19494,
+    "non_merchandise": 4559,
+    "nonpositive_price": 2750,
+    "nonpositive_quantity": 3457,
+    "sale_anonymous": 234460,
+    "sale_identified": 802651
+  },
+  "reconciled": true,
+  "suspicious_duplicate_extra_rows": 34335,
+  "total_rows": 1067371,
+  "unique_raw_row_ids": 1067371
+}

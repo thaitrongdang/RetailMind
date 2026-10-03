@@ -16,3 +16,4 @@ logs/
 *.duckdb
 *.xlsx
 *.xls
+.pytest_tmp*/
