@@ -11,7 +11,7 @@
 
 ## Serving boundary
 
-Versioned model bundles contain model parameters, mapping hashes, snapshot ID, cutoff, preprocessing policy, and package versions. The service will load only snapshot artifacts and model bundles. Historical replay outcomes will be read by a separate evaluation path. Model scores order items and must not be displayed as purchase probabilities.
+Versioned model bundles contain model parameters, mapping hashes, snapshot ID, cutoff, preprocessing policy, and package versions. `service.py` loads only snapshot artifacts and model bundles at FastAPI lifespan startup. `api.py` handles validation, request IDs, errors, CSV export and JSONL logs. Only `/replay/outcomes` reads future labels from their separate directory. `/overview` queries pre-cutoff analytics sales. Model scores order items and must not be displayed as purchase probabilities.
 
 ## Snapshot and row lineage
 
@@ -19,4 +19,4 @@ Versioned model bundles contain model parameters, mapping hashes, snapshot ID, c
 
 ## Current implementation status
 
-The offline pipeline and validation model comparison are implemented. FastAPI and the six-page frontend are pending. The frontend design is supplied by the project owner.
+The offline pipeline, validation selection, frozen test report, error analysis and FastAPI have run against real artifacts. A fresh environment passed 11 fixture tests and lint. The final six-page frontend is pending the project owner's design. Docker packaging is written but unverified because Docker is absent on this host.

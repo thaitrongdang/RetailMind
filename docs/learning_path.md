@@ -1,0 +1,14 @@
+# Learning RetailMind after the build
+
+The user has asked the AI to build the project first. This guide is a study order for after the working V1 is reviewed. It makes no claim about the user's current understanding.
+
+1. **Business question and granularity.** Read `docs/problem_statement.md`, `examples/granularity_example.py` and `docs/data_dictionary.md`. Explain line, invoice, customer, distinct customer-product interaction and 30-day label in your own words.
+2. **Source and cleaning.** Read `reports/data_manifest.json`, `reports/data_quality.json`, `src/retailmind/data/ingest.py` and `tests/test_ingest.py`. Reconcile every source row into exactly one reason code; explain why anonymous sales support analytics but not personalized training.
+3. **Time boundary and SQL.** Read `src/retailmind/data/snapshots.py`, `src/retailmind/analytics.py`, `tests/test_snapshots.py` and `reports/eda.md`. Move a fixture row exactly onto a cutoff and predict which side contains it before running the test.
+4. **Ranking and labels.** Read `src/retailmind/evaluation/metrics.py`, `tests/test_metrics.py` and `reports/validation_selection.json`. Compute Recall@10 and NDCG@10 by hand for the tiny test case. Explain why an item unseen at cutoff remains in the main Recall denominator.
+5. **Models and routing.** Read `src/retailmind/models/{popularity,itemcf,als,routing,bundle}.py` and `tests/test_models.py`. Explain repeat purchase policy, ItemCF diagonal removal, ALS matrix axes and bundle mapping hashes. Change a fixture and predict the effect.
+6. **Frozen evaluation.** Read `reports/test_metrics.json`, `reports/model_card.md`, `reports/error_analysis.md` and `src/retailmind/training.py`. Explain why the final test result did not replace the validation-selected model even though ALS has higher test Recall@10.
+7. **Service and UI.** Follow `docs/code_walkthrough.md`, then read `src/retailmind/service.py`, `src/retailmind/api.py`, `tests/test_api.py` and the frontend once integrated. Trace one request ID, one fallback and one missing-model response. Show where outcome labels become visible and where they cannot enter recommendation serving.
+8. **Operations and changes.** Run README setup and tests from a fresh environment; inspect `.github/workflows/ci.yml`, `Dockerfile`, `compose.yaml` and `scripts/benchmark_api.py`. Propose one feature change with a test, update model card if it changes evaluation, and use a branch/PR.
+
+Suggested exercises remain pending until the user completes them. Keep learner-authored answers in `docs/learning_log.md`; implementation records and AI explanations belong in progress, decisions and focused docs.

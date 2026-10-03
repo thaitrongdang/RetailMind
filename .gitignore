@@ -17,3 +17,4 @@ logs/
 *.xlsx
 *.xls
 .pytest_tmp*/
+.venv_clean/

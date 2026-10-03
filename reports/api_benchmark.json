@@ -1,0 +1,14 @@
+{
+  "cold_start_to_ready_ms": 2385.166,
+  "endpoint": "GET /recommendations?{snapshot=test,customer_id,k=10}",
+  "logical_cpu_count": 4,
+  "measured_at_local_time": "2026-10-03T21:06:41",
+  "method": "200 sequential loopback HTTP requests, 20 deterministic historical customers, 20 warmups, evidence enabled; one Uvicorn worker; no concurrency",
+  "platform": "Windows-10-10.0.22000-SP0",
+  "python": "3.11.15",
+  "request_max_ms": 196.923,
+  "request_p50_ms": 32.264,
+  "request_p95_ms": 109.029,
+  "requests": 200,
+  "snapshot_id": "test-20111101-bcbe73b35f5b-1cfa8347816f"
+}

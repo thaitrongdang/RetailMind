@@ -1,24 +1,37 @@
 # RetailMind
 
-RetailMind ranks up to 10 products for an identified customer at a cutoff, using only earlier transactions to predict purchases in the next 30 days. Repeat purchases are eligible. Model scores are ranking signals, not purchase probabilities.
+RetailMind ranks up to 10 products for an identified retail customer at a historical cutoff, using only earlier transactions to predict purchases in the next 30 days. Repeat purchases are eligible. Scores are ranking signals, not purchase probabilities. This repository contains a reproducible offline pipeline, three compared models, a frozen historical evaluation and a read-only API.
 
-## Status
+## Current status
 
-The data pipeline, cutoff-safe snapshots, Popularity, ItemCF, ALS, and validation evaluator are implemented. Model selection is being frozen on validation before final test evaluation. The API, final six-page frontend, packaging, and portfolio materials are still in progress. The approved frontend design will be supplied by the project owner.
+The data pipeline, two cutoff snapshots, validation selection, frozen test evaluation, model card, error analysis and FastAPI are implemented and verified locally. A final six-page frontend based on the project owner's design remains pending. Docker files are prepared but Docker is unavailable on the development host, so container build verification remains pending. GitHub CI is configured; its run status must be checked on the PR. Public hosting and business impact are not claimed.
 
-## Dataset
+## Dataset and protocol
 
-Source: [UCI Online Retail II](https://archive.ics.uci.edu/dataset/502/online+retail+ii), DOI 10.24432/C5CG6D, CC BY 4.0. The source workbook is excluded from Git. The verified workbook SHA-256 and actual row counts are in [data_manifest.json](reports/data_manifest.json); cleaning counts are in [data_quality.json](reports/data_quality.json).
+Source: [UCI Online Retail II](https://archive.ics.uci.edu/dataset/502/online+retail+ii), DOI 10.24432/C5CG6D, CC BY 4.0. The two-sheet workbook and full processed data are ignored by Git. Its verified SHA-256, schema and counts are in [data_manifest.json](reports/data_manifest.json), with cleaning counts in [data_quality.json](reports/data_quality.json). The source timezone is unspecified; timestamps are preserved without assigning UTC.
 
-The source's timezone is unspecified. RetailMind preserves its timestamp values without assigning UTC. A valid recommendation sale requires an identified customer, positive quantity and price, a usable product code and date, and a non-cancellation invoice. Exact non-merchandise code exclusions are documented in [decisions.md](docs/decisions.md).
+- Validation cutoff: 2011-09-01; test cutoff: 2011-11-01. History is strictly before its cutoff. Labels are from cutoff inclusive through 30 days later exclusive.
+- Candidates are identified valid merchandise products observed before that cutoff. Products unknown at cutoff remain in the denominator of main Recall@10. Eligible recall and label availability are reported separately.
+- Main evaluation uses historical customers with at least one future valid purchase; empty-label historical customers and new future customers are accounted for separately. Full candidate lists, common labels/cohorts and repeat policy apply to all models.
+- Validation selected ItemCF with 20 neighbors and log invoice weighting by NDCG@10. The test result did not change that choice. See [model_card.md](reports/model_card.md) and the JSON reports for exact metrics and limitations.
 
-## Reproduce the current offline pipeline
+| Final test model | Recall@10 | NDCG@10 | HitRate@10 |
+| --- | ---: | ---: | ---: |
+| Popularity | 0.042627 | 0.114242 | 0.561607 |
+| ItemCF, selected | 0.072709 | 0.166409 | 0.573860 |
+| ALS | 0.081083 | 0.151927 | 0.599728 |
 
-Use CPython 3.11 and [uv](https://docs.astral.sh/uv/). In PowerShell:
+These are offline matches on 1,469 historical customers with future labels, not online conversion or revenue gains. Test outcome labels are stored apart from service artifacts.
+
+## Reproduce on Windows
+
+Install CPython 3.11 and [uv](https://docs.astral.sh/uv/). From the repository root in PowerShell:
 
 ```powershell
 $env:UV_CACHE_DIR = Join-Path (Get-Location) '.uv-cache'
-uv sync --python 3.11 --extra dev
+$env:OPENBLAS_NUM_THREADS = '1'
+$env:OMP_NUM_THREADS = '4'
+uv sync --locked --python 3.11 --extra dev
 New-Item -ItemType Directory -Path data/raw -Force | Out-Null
 Invoke-WebRequest -Uri 'https://archive.ics.uci.edu/static/public/502/online%2Bretail%2Bii.zip' -OutFile 'data/raw/online_retail_ii_uci.zip'
 tar -xf 'data/raw/online_retail_ii_uci.zip' -C 'data/raw'
@@ -28,19 +41,38 @@ tar -xf 'data/raw/online_retail_ii_uci.zip' -C 'data/raw'
 .\.venv\Scripts\retailmind.exe build-snapshot --snapshot test
 .\.venv\Scripts\retailmind.exe train --snapshot validation
 .\.venv\Scripts\retailmind.exe train --snapshot test
+.\.venv\Scripts\retailmind.exe analyze-errors --snapshot test
+.\.venv\Scripts\ruff.exe check src tests
 .\.venv\Scripts\python.exe -m pytest tests -q --basetemp=.pytest_tmp
 ```
 
-Run test training only after reviewing `reports/validation_selection.json`. The test command refuses to overwrite an existing final test report. Raw spreadsheets, full Parquet data, per-customer predictions, and model bundles remain outside Git. Aggregate manifests and evaluation reports are tracked.
+Verify the workbook SHA-256 against the manifest before interpreting the published numbers. The test train command refuses to overwrite a final test report. To rebuild an evaluation after a justified protocol correction, first archive and document the old report and bundles; do not tune from test results.
 
-## Protocol
+## Run the API
 
-- History: timestamps strictly before the cutoff.
-- Labels: cutoff inclusive through 30 days later exclusive.
-- Candidate set: valid merchandise with identified sales before that cutoff.
-- Main evaluation: historical customers with at least one valid future purchase; report empty-label and new-future customers separately.
-- Main Recall@10 uses every distinct future product, including products unknown at cutoff. Eligible-label recall and label availability are reported separately.
-- All models use the same candidate set and cohort. Validation selects parameters and routing; test uses that frozen choice.
-- Validation and test bundles are separate. Outcome labels are stored outside service artifacts.
+```powershell
+$env:OPENBLAS_NUM_THREADS = '1'
+$env:OMP_NUM_THREADS = '4'
+.\.venv\Scripts\uvicorn.exe retailmind.api:app --host 127.0.0.1 --port 8000
+```
 
-See [architecture.md](docs/architecture.md), [data_dictionary.md](docs/data_dictionary.md), and [progress.md](docs/progress.md) for implementation details and verified progress.
+Open [interactive API docs](http://127.0.0.1:8000/docs) or call:
+
+```powershell
+Invoke-RestMethod 'http://127.0.0.1:8000/health'
+Invoke-RestMethod 'http://127.0.0.1:8000/recommendations?customer_id=12384&snapshot=test&k=10'
+Invoke-RestMethod 'http://127.0.0.1:8000/recommendations/new?snapshot=test&k=10'
+Invoke-RestMethod 'http://127.0.0.1:8000/replay/outcomes?customer_id=12384&snapshot=test'
+```
+
+The API also exposes `/snapshots`, `/customers/{id}`, `/products`, `/products/{id}/similar`, `/overview`, `/data-quality`, `/evaluations` and `/evaluations/errors`. `format=csv` works on recommendations and evaluations. Unknown customers return 404; explicit new-customer mode uses Popularity. Invalid query parameters return 422, unknown snapshot 404 and missing model/data 503. Every response has a request ID. The recommendation loader never imports outcome labels; only `/replay/outcomes` reads them.
+
+## Container packaging
+
+After generating local `data/processed` and `artifacts` bundles, `docker compose up --build` starts the API on local port 8000 with read-only mounts for both artifact directories. Docker is not installed on the original development machine, so this command still requires verification on a Docker host. No raw source workbook is copied into the image.
+
+## Verification and performance
+
+A fresh `uv sync --locked --python 3.11 --extra dev` into `.venv_clean` installed 37 packages; 11 fixture tests and Ruff lint passed locally. The 200-request sequential loopback benchmark on Windows 10, CPython 3.11.15, four logical CPUs and one Uvicorn worker measured 32.264 ms p50, 109.029 ms p95, and 2,385.166 ms startup to ready. It used 20 deterministic historical customers, 20 warmups and top-10 recommendations with evidence; it is not a concurrency or UI benchmark. The method and raw summary are in [api_benchmark.json](reports/api_benchmark.json). Rerun with `python scripts/benchmark_api.py` after bundles exist.
+
+See [architecture.md](docs/architecture.md), [data_dictionary.md](docs/data_dictionary.md), [decisions.md](docs/decisions.md), [progress.md](docs/progress.md), [learning_path.md](docs/learning_path.md) and [code_walkthrough.md](docs/code_walkthrough.md). The frontend will consume the API without reimplementing ranking logic.

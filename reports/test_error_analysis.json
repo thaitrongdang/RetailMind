@@ -1,0 +1,218 @@
+{
+  "evaluated_customers": 1469,
+  "examples": {
+    "future_only_label": {
+      "customer_id": "12433",
+      "future_only_labels": [
+        "23428",
+        "23429",
+        "23430"
+      ],
+      "history_cohort": "over_five_invoices",
+      "labels": [
+        "16008",
+        "16014",
+        "16016",
+        "21154",
+        "21158",
+        "21159",
+        "21162",
+        "21165",
+        "21169",
+        "21175",
+        "21181",
+        "21216",
+        "21248",
+        "21479",
+        "21481",
+        "21533",
+        "21871",
+        "21872",
+        "21874",
+        "21908",
+        "22112",
+        "22114",
+        "22197",
+        "22467",
+        "22628",
+        "22631",
+        "22666",
+        "22667",
+        "22670",
+        "22693",
+        "22720",
+        "22726",
+        "22727",
+        "22728",
+        "22730",
+        "22835",
+        "22994",
+        "22998",
+        "23000",
+        "23002",
+        "23004",
+        "23165",
+        "23166",
+        "23167",
+        "23168",
+        "23169",
+        "23184",
+        "23197",
+        "23198",
+        "23240",
+        "23243",
+        "23293",
+        "23358",
+        "23428",
+        "23429",
+        "23430",
+        "23493",
+        "23571",
+        "47504H",
+        "47559B",
+        "72232",
+        "72760B",
+        "82581",
+        "82600",
+        "84510A",
+        "84596B",
+        "84596F",
+        "85152"
+      ],
+      "recommendations": [
+        "21212",
+        "22417",
+        "84991",
+        "21175",
+        "21181",
+        "21166",
+        "84992",
+        "21977",
+        "85152",
+        "82600"
+      ]
+    },
+    "zero_hit_one_invoice": {
+      "customer_id": "12384",
+      "future_only_labels": [],
+      "history_cohort": "one_invoice",
+      "labels": [
+        "15056BL",
+        "20685",
+        "21430",
+        "21892",
+        "22366",
+        "22622",
+        "22632",
+        "22692",
+        "23084",
+        "23480",
+        "23494",
+        "85099F"
+      ],
+      "recommendations": [
+        "22699",
+        "23170",
+        "22352",
+        "22423",
+        "22720",
+        "23175",
+        "22329",
+        "23174",
+        "21559",
+        "23245"
+      ],
+      "repeat_labels": []
+    },
+    "zero_hit_over_five_invoices": {
+      "customer_id": "12352",
+      "future_only_labels": [],
+      "history_cohort": "over_five_invoices",
+      "labels": [
+        "21669",
+        "22178",
+        "22624",
+        "22627",
+        "22635",
+        "22668",
+        "22978",
+        "22982",
+        "23088",
+        "23089",
+        "23096",
+        "23367",
+        "23368",
+        "23559"
+      ],
+      "recommendations": [
+        "85123A",
+        "21212",
+        "21181",
+        "22666",
+        "22720",
+        "21232",
+        "82600",
+        "21231",
+        "22960",
+        "22423"
+      ],
+      "repeat_labels": [
+        "22624",
+        "22635",
+        "22668"
+      ]
+    },
+    "zero_hit_two_to_five_invoices": {
+      "customer_id": "12356",
+      "future_only_labels": [],
+      "history_cohort": "two_to_five_invoices",
+      "labels": [
+        "21843",
+        "22423"
+      ],
+      "recommendations": [
+        "21212",
+        "84991",
+        "22417",
+        "21977",
+        "84992",
+        "21080",
+        "21213",
+        "21975",
+        "21232",
+        "21976"
+      ],
+      "repeat_labels": [
+        "21843",
+        "22423"
+      ]
+    }
+  },
+  "future_label_pairs": 49463,
+  "future_only_label_pair_rate": 0.007844247215090068,
+  "future_only_label_pairs": 388,
+  "interpretation_limit": "A miss is an offline mismatch with observed purchases, not evidence that a customer disliked the recommendation or saw every candidate product.",
+  "repeat_label_pair_rate": 0.4342235610456301,
+  "repeat_label_pairs": 21478,
+  "selected_model": "itemcf",
+  "snapshot_id": "test-20111101-bcbe73b35f5b-1cfa8347816f",
+  "zero_hit_by_history_cohort": {
+    "one_invoice": {
+      "customers": 209,
+      "zero_hit": 105,
+      "zero_hit_rate": 0.5023923444976076
+    },
+    "over_five_invoices": {
+      "customers": 796,
+      "zero_hit": 286,
+      "zero_hit_rate": 0.3592964824120603
+    },
+    "two_to_five_invoices": {
+      "customers": 464,
+      "zero_hit": 235,
+      "zero_hit_rate": 0.5064655172413793
+    }
+  },
+  "zero_hit_customers": 626,
+  "zero_hit_rate": 0.426140231449966
+}
