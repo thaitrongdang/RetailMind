@@ -7,6 +7,7 @@ COPY pyproject.toml uv.lock README.md ./
 COPY src ./src
 COPY configs ./configs
 COPY reports ./reports
+COPY ui ./ui
 RUN uv sync --locked --no-dev --python 3.11
 EXPOSE 8000
 CMD ["/app/.venv/bin/uvicorn", "retailmind.api:app", "--host", "0.0.0.0", "--port", "8000"]

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RetailMind · Historical Recommendation Explorer</title>
+  <link rel="stylesheet" href="/ui/style.css">
+  <script src="/ui/app.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar" aria-label="Primary navigation">
+      <div class="brand"><span class="brand-mark">R</span><div><strong>RetailMind</strong><small>Historical recommendation explorer</small></div></div>
+      <div class="provisional">Provisional inspection interface</div>
+      <nav id="navigation" aria-label="Pages">
+        <button type="button" data-page="overview" class="active">Overview</button>
+        <button type="button" data-page="customers">Customers</button>
+        <button type="button" data-page="replay">Historical Replay</button>
+        <button type="button" data-page="products">Products</button>
+        <button type="button" data-page="evaluation">Model Evaluation</button>
+        <button type="button" data-page="quality">Data Quality</button>
+      </nav>
+      <div class="sidebar-note">Built from the real UCI source. Figures are retrospective and do not measure online impact.</div>
+    </aside>
+    <div class="workspace">
+      <header class="topbar">
+        <div><span class="eyebrow">Retail analytics / historical replay</span><h1 id="page-title">Overview</h1></div>
+        <div class="snapshot-control"><label for="snapshot">Training cutoff</label><select id="snapshot" aria-label="Training cutoff"><option value="test">Test · 01 Nov 2011</option><option value="validation">Validation · 01 Sep 2011</option></select></div>
+      </header>
+      <main id="content" tabindex="-1" aria-live="polite"><div class="state">Loading…</div></main>
+      <footer>RetailMind V1 · Scores are ranking signals, not purchase probabilities. Source timestamps have no specified timezone.</footer>
+    </div>
+  </div>
+</body>
+</html>

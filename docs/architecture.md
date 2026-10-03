@@ -19,4 +19,4 @@ Versioned model bundles contain model parameters, mapping hashes, snapshot ID, c
 
 ## Current implementation status
 
-The offline pipeline, validation selection, frozen test report, error analysis and FastAPI have run against real artifacts. A fresh environment passed 11 fixture tests and lint. The final six-page frontend is pending the project owner's design. Docker packaging is written but unverified because Docker is absent on this host.
+The offline pipeline, validation selection, frozen test report, error analysis and FastAPI have run against real artifacts. A fresh environment passed 11 fixture tests and lint. The six-page provisional inspection UI in `ui/` calls the same API and does not contain ranking logic. The final visual frontend is pending the project owner's design. Docker packaging is written but unverified because Docker is absent on this host.
