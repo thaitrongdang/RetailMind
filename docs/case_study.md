@@ -40,7 +40,7 @@ The selected model had no top-ten overlap for 626 of 1,469 evaluated customers (
 
 The FastAPI service loads both snapshot bundles read-only at startup. It exposes customers, products, rankings, similarity, metrics, quality, aggregate overview and a separately routed historical outcome reader. Unknown historical IDs return 404; explicit new-customer mode uses Popularity. Responses carry request IDs, actual serving model, version, score semantics, repeat flags and historical evidence. CSV exports include snapshot and evaluation metadata. The six-page inspection UI is provisional until final design approval.
 
-A fresh locked CPython 3.11 environment passed 11 fixture tests and Ruff lint. GitHub Actions CI passed on the backend PR. On the development Windows host, a sequential loopback HTTP benchmark of 200 top-ten requests after warmup measured p50 32.264 ms and p95 109.029 ms, with 2,385.166 ms from process launch to readiness. The method used 20 deterministic historical customers, one worker and evidence enabled; it is not a concurrent traffic or UI latency result.
+A fresh locked CPython 3.11 environment passed 11 fixture tests and Ruff lint. GitHub Actions CI passed on the merged provisional UI commit on `main` as well as the backend PR. On the development Windows host, a sequential loopback HTTP benchmark of 200 top-ten requests after warmup measured p50 32.264 ms and p95 109.029 ms, with 2,385.166 ms from process launch to readiness. The method used 20 deterministic historical customers, one worker and evidence enabled; it is not a concurrent traffic or UI latency result.
 
 ## Limits and next work
 
