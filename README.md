@@ -4,7 +4,7 @@ RetailMind ranks up to 10 products for an identified retail customer at a histor
 
 ## Current status
 
-The data pipeline, two cutoff snapshots, validation selection, frozen test evaluation, model card, error analysis and FastAPI are implemented and verified locally. A provisional six-page inspection UI is available at `/ui/`; the final frontend based on the project owner's design remains pending. Docker files are prepared but Docker is unavailable on the development host, so container build verification remains pending. GitHub CI passed on merged main commit `96cfb1e`. Public hosting and business impact are not claimed.
+The data pipeline, two cutoff snapshots, validation selection, frozen test evaluation, model card, error analysis and FastAPI are implemented and verified locally. A provisional six-page inspection UI is available at `/ui/`; the final frontend based on the project owner's design remains pending. The Docker image build and API import passed on GitHub Actions; local Compose with real bundles remains unverified because Docker is unavailable on the development host. GitHub CI passed on merged main commit `96cfb1e`. Public hosting and business impact are not claimed.
 
 ## Dataset and protocol
 
@@ -69,7 +69,7 @@ The API also exposes `/snapshots`, `/customers/{id}`, `/products`, `/products/{i
 
 ## Container packaging
 
-After generating local `data/processed` and `artifacts` bundles, `docker compose up --build` starts the API on local port 8000 with read-only mounts for both artifact directories. Docker is not installed on the original development machine, so this command still requires verification on a Docker host. No raw source workbook is copied into the image.
+After generating local `data/processed` and `artifacts` bundles, `docker compose up --build` starts the API on local port 8000 with read-only mounts for both artifact directories. GitHub Actions has built the image and imported the API. Docker is not installed on the original development machine, so a Compose launch with the real mounted bundles still requires verification on a Docker host. No raw source workbook is copied into the image.
 
 ## Verification and performance
 
