@@ -1,0 +1,62 @@
+{
+  "classification_version": "v1-exact-stock-code-exclusions",
+  "excluded_stock_codes": [
+    "ADJUST",
+    "ADJUST2",
+    "BANK CHARGES",
+    "C2",
+    "D",
+    "DOT",
+    "M",
+    "POST",
+    "TEST001",
+    "TEST002"
+  ],
+  "license": "CC BY 4.0",
+  "outputs": [
+    "data/processed/raw_transactions.parquet",
+    "data/processed/transactions.parquet"
+  ],
+  "package_versions": {
+    "duckdb": "1.5.6",
+    "openpyxl": "3.1.5",
+    "pyarrow": "25.0.1",
+    "pyyaml": "6.0.3"
+  },
+  "raw_row_id_rule": "first 16 SHA-256 hex characters:zero-based sheet index:one-based Excel row",
+  "sheets": [
+    {
+      "headers": [
+        "Invoice",
+        "StockCode",
+        "Description",
+        "Quantity",
+        "InvoiceDate",
+        "Price",
+        "Customer ID",
+        "Country"
+      ],
+      "name": "Year 2009-2010",
+      "rows": 525461
+    },
+    {
+      "headers": [
+        "Invoice",
+        "StockCode",
+        "Description",
+        "Quantity",
+        "InvoiceDate",
+        "Price",
+        "Customer ID",
+        "Country"
+      ],
+      "name": "Year 2010-2011",
+      "rows": 541910
+    }
+  ],
+  "source": "https://archive.ics.uci.edu/dataset/502/online+retail+ii",
+  "source_filename": "online_retail_II.xlsx",
+  "total_rows": 1067371,
+  "workbook_bytes": 45622278,
+  "workbook_sha256": "bcbe73b35f5b7babf197fb0cb983a11f5d9ff929078d4aa53d171b1f2df2e980"
+}

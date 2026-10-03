@@ -1,0 +1,21 @@
+project:
+  name: retailmind
+  currency: GBP
+  timezone_policy: preserve_source_time_unknown_timezone
+
+data:
+  source_dataset_id: 502
+  source_url: https://archive.ics.uci.edu/dataset/502/online+retail+ii
+  download_url: https://archive.ics.uci.edu/static/public/502/online%2Bretail%2Bii.zip
+  workbook: data/raw/online_retail_II.xlsx
+  processed_dir: data/processed
+  reports_dir: reports
+  excluded_stock_codes: [POST, M, C2, ADJUST, ADJUST2, "BANK CHARGES", D, DOT, TEST001, TEST002]
+
+evaluation:
+  horizon_days: 30
+  k: 10
+  validation_cutoff: "2011-09-01T00:00:00"
+  test_cutoff: "2011-11-01T00:00:00"
+  allow_repeat_purchase: true
+  selection_metric: ndcg_at_10

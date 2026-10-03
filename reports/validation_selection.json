@@ -1,0 +1,1383 @@
+{
+  "best_model_metrics": {
+    "als": {
+      "by_history_cohort": {
+        "one_invoice": {
+          "catalog_coverage": 0.11577752553916004,
+          "eligible_label_customers": 112,
+          "eligible_recall_at_10": 0.11188148059698605,
+          "evaluated_customers": 112,
+          "hit_rate_at_10": 0.6517857142857143,
+          "label_availability_macro": 0.9544651035109261,
+          "ndcg_at_10": 0.18027011957839043,
+          "recall_at_10": 0.10872067280021695
+        },
+        "over_five_invoices": {
+          "catalog_coverage": 0.22587968217934165,
+          "eligible_label_customers": 626,
+          "eligible_recall_at_10": 0.08684057373039733,
+          "evaluated_customers": 626,
+          "hit_rate_at_10": 0.5830670926517572,
+          "label_availability_macro": 0.9458958234926284,
+          "ndcg_at_10": 0.14050861858828265,
+          "recall_at_10": 0.08335920331249205
+        },
+        "two_to_five_invoices": {
+          "catalog_coverage": 0.16526674233825198,
+          "eligible_label_customers": 333,
+          "eligible_recall_at_10": 0.11302284777487756,
+          "evaluated_customers": 333,
+          "hit_rate_at_10": 0.6486486486486487,
+          "label_availability_macro": 0.9535478775865983,
+          "ndcg_at_10": 0.1816233097282677,
+          "recall_at_10": 0.1088634801565842
+        }
+      },
+      "by_rfm_segment": {
+        "frequent": {
+          "customers": 102,
+          "ndcg_at_10": 0.1792251871060124,
+          "recall_at_10": 0.09848533099614434
+        },
+        "less_recent_less_frequent": {
+          "customers": 90,
+          "ndcg_at_10": 0.17991411248450725,
+          "recall_at_10": 0.09162362820143764
+        },
+        "recent": {
+          "customers": 144,
+          "ndcg_at_10": 0.1674751541520233,
+          "recall_at_10": 0.1202633844234644
+        },
+        "recent_frequent": {
+          "customers": 735,
+          "ndcg_at_10": 0.14971367260169732,
+          "recall_at_10": 0.08843749369071004
+        }
+      },
+      "candidate_products": 4405,
+      "catalog_coverage": 0.2583427922814983,
+      "eligible_label_customers": 1071,
+      "eligible_recall_at_10": 0.09759993771346909,
+      "empty_label_historical_customers": 4153,
+      "evaluated_customers": 1071,
+      "fallback_customer_rate": 0.0,
+      "future_customers": 1259,
+      "future_distinct_label_pairs": 31814,
+      "historical_customers": 5224,
+      "hit_rate_at_10": 0.6106442577030813,
+      "k": 10,
+      "known_future_label_pairs": 30206,
+      "label_availability_macro": 0.9491711674471954,
+      "label_availability_micro": 0.9494562142453008,
+      "model": "als",
+      "ndcg_at_10": 0.15745024348137984,
+      "new_future_customers": 188,
+      "offline_inference_p50_ms": 1.4583999291062355,
+      "offline_inference_p95_ms": 1.718799991067499,
+      "recall_at_10": 0.09394128433182714,
+      "snapshot_id": "validation-20110901-bcbe73b35f5b-b995de65bce5"
+    },
+    "itemcf": {
+      "by_history_cohort": {
+        "one_invoice": {
+          "catalog_coverage": 0.09829738933030648,
+          "eligible_label_customers": 112,
+          "eligible_recall_at_10": 0.07043556503972252,
+          "evaluated_customers": 112,
+          "hit_rate_at_10": 0.5803571428571429,
+          "label_availability_macro": 0.9544651035109261,
+          "ndcg_at_10": 0.12780130365315662,
+          "recall_at_10": 0.06780086235357485
+        },
+        "over_five_invoices": {
+          "catalog_coverage": 0.11214528944381384,
+          "eligible_label_customers": 626,
+          "eligible_recall_at_10": 0.1042989095164924,
+          "evaluated_customers": 626,
+          "hit_rate_at_10": 0.6837060702875399,
+          "label_availability_macro": 0.9458958234926284,
+          "ndcg_at_10": 0.22880293220445333,
+          "recall_at_10": 0.09969578514541275
+        },
+        "two_to_five_invoices": {
+          "catalog_coverage": 0.12372304199772985,
+          "eligible_label_customers": 333,
+          "eligible_recall_at_10": 0.09851124634907922,
+          "evaluated_customers": 333,
+          "hit_rate_at_10": 0.6036036036036037,
+          "label_availability_macro": 0.9535478775865983,
+          "ndcg_at_10": 0.17812421206038398,
+          "recall_at_10": 0.09587343053148986
+        }
+      },
+      "by_rfm_segment": {
+        "frequent": {
+          "customers": 102,
+          "ndcg_at_10": 0.16319473099856924,
+          "recall_at_10": 0.07785309631258194
+        },
+        "less_recent_less_frequent": {
+          "customers": 90,
+          "ndcg_at_10": 0.1340367362843181,
+          "recall_at_10": 0.0756211178040765
+        },
+        "recent": {
+          "customers": 144,
+          "ndcg_at_10": 0.1433622681707022,
+          "recall_at_10": 0.08045835559353115
+        },
+        "recent_frequent": {
+          "customers": 735,
+          "ndcg_at_10": 0.22789987583840188,
+          "recall_at_10": 0.10285196029917844
+        }
+      },
+      "candidate_products": 4405,
+      "catalog_coverage": 0.18070374574347334,
+      "eligible_label_customers": 1071,
+      "eligible_recall_at_10": 0.0989581192119669,
+      "empty_label_historical_customers": 4153,
+      "evaluated_customers": 1071,
+      "fallback_customer_rate": 0.0,
+      "future_customers": 1259,
+      "future_distinct_label_pairs": 31814,
+      "historical_customers": 5224,
+      "hit_rate_at_10": 0.6479925303454716,
+      "k": 10,
+      "known_future_label_pairs": 30206,
+      "label_availability_macro": 0.9491711674471954,
+      "label_availability_micro": 0.9494562142453008,
+      "model": "itemcf",
+      "ndcg_at_10": 0.20248342127474248,
+      "new_future_customers": 188,
+      "offline_inference_p50_ms": 6.252499995753169,
+      "offline_inference_p95_ms": 9.627099963836372,
+      "recall_at_10": 0.09517190518358065,
+      "snapshot_id": "validation-20110901-bcbe73b35f5b-b995de65bce5"
+    },
+    "popularity": {
+      "by_history_cohort": {
+        "one_invoice": {
+          "catalog_coverage": 0.0022701475595913734,
+          "eligible_label_customers": 112,
+          "eligible_recall_at_10": 0.027300795489649005,
+          "evaluated_customers": 112,
+          "hit_rate_at_10": 0.36607142857142855,
+          "label_availability_macro": 0.9544651035109261,
+          "ndcg_at_10": 0.0586522297475007,
+          "recall_at_10": 0.026185090777555955
+        },
+        "over_five_invoices": {
+          "catalog_coverage": 0.0022701475595913734,
+          "eligible_label_customers": 626,
+          "eligible_recall_at_10": 0.048142626051064875,
+          "evaluated_customers": 626,
+          "hit_rate_at_10": 0.5399361022364217,
+          "label_availability_macro": 0.9458958234926284,
+          "ndcg_at_10": 0.12514654858333307,
+          "recall_at_10": 0.04601982231941192
+        },
+        "two_to_five_invoices": {
+          "catalog_coverage": 0.0022701475595913734,
+          "eligible_label_customers": 333,
+          "eligible_recall_at_10": 0.03836103273771809,
+          "evaluated_customers": 333,
+          "hit_rate_at_10": 0.42042042042042044,
+          "label_availability_macro": 0.9535478775865983,
+          "ndcg_at_10": 0.07669426502596781,
+          "recall_at_10": 0.03705053725153835
+        }
+      },
+      "by_rfm_segment": {
+        "frequent": {
+          "customers": 102,
+          "ndcg_at_10": 0.08285134909120973,
+          "recall_at_10": 0.03117487036996557
+        },
+        "less_recent_less_frequent": {
+          "customers": 90,
+          "ndcg_at_10": 0.06022470541436928,
+          "recall_at_10": 0.028981322234702355
+        },
+        "recent": {
+          "customers": 144,
+          "ndcg_at_10": 0.060260543079100844,
+          "recall_at_10": 0.026745777545840326
+        },
+        "recent_frequent": {
+          "customers": 735,
+          "ndcg_at_10": 0.11959374163339688,
+          "recall_at_10": 0.046856353875292106
+        }
+      },
+      "candidate_products": 4405,
+      "catalog_coverage": 0.0022701475595913734,
+      "eligible_label_customers": 1071,
+      "eligible_recall_at_10": 0.04292175247849433,
+      "empty_label_historical_customers": 4153,
+      "evaluated_customers": 1071,
+      "fallback_customer_rate": 0.0,
+      "future_customers": 1259,
+      "future_distinct_label_pairs": 31814,
+      "historical_customers": 5224,
+      "hit_rate_at_10": 0.484593837535014,
+      "k": 10,
+      "known_future_label_pairs": 30206,
+      "label_availability_macro": 0.9491711674471954,
+      "label_availability_micro": 0.9494562142453008,
+      "model": "popularity",
+      "ndcg_at_10": 0.10312789859807082,
+      "new_future_customers": 188,
+      "offline_inference_p50_ms": 0.8923000423237681,
+      "offline_inference_p95_ms": 1.50830001803115,
+      "recall_at_10": 0.04115683272063529,
+      "snapshot_id": "validation-20110901-bcbe73b35f5b-b995de65bce5"
+    }
+  },
+  "evaluation_contract": {
+    "excluded_stock_codes": [
+      "ADJUST",
+      "ADJUST2",
+      "BANK CHARGES",
+      "C2",
+      "D",
+      "DOT",
+      "M",
+      "POST",
+      "TEST001",
+      "TEST002"
+    ],
+    "horizon_days": 30,
+    "k": 10,
+    "repeat_purchases_allowed": true
+  },
+  "experiments": [
+    {
+      "metrics": {
+        "by_history_cohort": {
+          "one_invoice": {
+            "catalog_coverage": 0.0022701475595913734,
+            "eligible_label_customers": 112,
+            "eligible_recall_at_10": 0.027300795489649005,
+            "evaluated_customers": 112,
+            "hit_rate_at_10": 0.36607142857142855,
+            "label_availability_macro": 0.9544651035109261,
+            "ndcg_at_10": 0.0586522297475007,
+            "recall_at_10": 0.026185090777555955
+          },
+          "over_five_invoices": {
+            "catalog_coverage": 0.0022701475595913734,
+            "eligible_label_customers": 626,
+            "eligible_recall_at_10": 0.048142626051064875,
+            "evaluated_customers": 626,
+            "hit_rate_at_10": 0.5399361022364217,
+            "label_availability_macro": 0.9458958234926284,
+            "ndcg_at_10": 0.12514654858333307,
+            "recall_at_10": 0.04601982231941192
+          },
+          "two_to_five_invoices": {
+            "catalog_coverage": 0.0022701475595913734,
+            "eligible_label_customers": 333,
+            "eligible_recall_at_10": 0.03836103273771809,
+            "evaluated_customers": 333,
+            "hit_rate_at_10": 0.42042042042042044,
+            "label_availability_macro": 0.9535478775865983,
+            "ndcg_at_10": 0.07669426502596781,
+            "recall_at_10": 0.03705053725153835
+          }
+        },
+        "by_rfm_segment": {
+          "frequent": {
+            "customers": 102,
+            "ndcg_at_10": 0.08285134909120973,
+            "recall_at_10": 0.03117487036996557
+          },
+          "less_recent_less_frequent": {
+            "customers": 90,
+            "ndcg_at_10": 0.06022470541436928,
+            "recall_at_10": 0.028981322234702355
+          },
+          "recent": {
+            "customers": 144,
+            "ndcg_at_10": 0.060260543079100844,
+            "recall_at_10": 0.026745777545840326
+          },
+          "recent_frequent": {
+            "customers": 735,
+            "ndcg_at_10": 0.11959374163339688,
+            "recall_at_10": 0.046856353875292106
+          }
+        },
+        "candidate_products": 4405,
+        "catalog_coverage": 0.0022701475595913734,
+        "eligible_label_customers": 1071,
+        "eligible_recall_at_10": 0.04292175247849433,
+        "empty_label_historical_customers": 4153,
+        "evaluated_customers": 1071,
+        "fallback_customer_rate": 0.0,
+        "future_customers": 1259,
+        "future_distinct_label_pairs": 31814,
+        "historical_customers": 5224,
+        "hit_rate_at_10": 0.484593837535014,
+        "k": 10,
+        "known_future_label_pairs": 30206,
+        "label_availability_macro": 0.9491711674471954,
+        "label_availability_micro": 0.9494562142453008,
+        "model": "popularity",
+        "ndcg_at_10": 0.10312789859807082,
+        "new_future_customers": 188,
+        "offline_inference_p50_ms": 0.8923000423237681,
+        "offline_inference_p95_ms": 1.50830001803115,
+        "recall_at_10": 0.04115683272063529,
+        "snapshot_id": "validation-20110901-bcbe73b35f5b-b995de65bce5"
+      },
+      "model": "popularity",
+      "params": {
+        "history_days": 90
+      }
+    },
+    {
+      "metrics": {
+        "by_history_cohort": {
+          "one_invoice": {
+            "catalog_coverage": 0.09988649262202043,
+            "eligible_label_customers": 112,
+            "eligible_recall_at_10": 0.0700005838321673,
+            "evaluated_customers": 112,
+            "hit_rate_at_10": 0.5714285714285714,
+            "label_availability_macro": 0.9544651035109261,
+            "ndcg_at_10": 0.13389126022076478,
+            "recall_at_10": 0.0673018475044197
+          },
+          "over_five_invoices": {
+            "catalog_coverage": 0.11259931895573212,
+            "eligible_label_customers": 626,
+            "eligible_recall_at_10": 0.09303411645933055,
+            "evaluated_customers": 626,
+            "hit_rate_at_10": 0.6661341853035144,
+            "label_availability_macro": 0.9458958234926284,
+            "ndcg_at_10": 0.2086186923914948,
+            "recall_at_10": 0.08852891753879578
+          },
+          "two_to_five_invoices": {
+            "catalog_coverage": 0.12667423382519863,
+            "eligible_label_customers": 333,
+            "eligible_recall_at_10": 0.09803981287909959,
+            "evaluated_customers": 333,
+            "hit_rate_at_10": 0.6006006006006006,
+            "label_availability_macro": 0.9535478775865983,
+            "ndcg_at_10": 0.17704091584444806,
+            "recall_at_10": 0.09520560413515934
+          }
+        },
+        "by_rfm_segment": {
+          "frequent": {
+            "customers": 102,
+            "ndcg_at_10": 0.1539222917585233,
+            "recall_at_10": 0.06758534296178449
+          },
+          "less_recent_less_frequent": {
+            "customers": 90,
+            "ndcg_at_10": 0.13278467180698342,
+            "recall_at_10": 0.06924801514412861
+          },
+          "recent": {
+            "customers": 144,
+            "ndcg_at_10": 0.1506271934367614,
+            "recall_at_10": 0.09106750768569355
+          },
+          "recent_frequent": {
+            "customers": 735,
+            "ndcg_at_10": 0.2111629081375661,
+            "recall_at_10": 0.09308928982989899
+          }
+        },
+        "candidate_products": 4405,
+        "catalog_coverage": 0.19772985244040864,
+        "eligible_label_customers": 1071,
+        "eligible_recall_at_10": 0.09218177402566183,
+        "empty_label_historical_customers": 4153,
+        "evaluated_customers": 1071,
+        "fallback_customer_rate": 0.0,
+        "future_customers": 1259,
+        "future_distinct_label_pairs": 31814,
+        "historical_customers": 5224,
+        "hit_rate_at_10": 0.6358543417366946,
+        "k": 10,
+        "known_future_label_pairs": 30206,
+        "label_availability_macro": 0.9491711674471954,
+        "label_availability_micro": 0.9494562142453008,
+        "model": "itemcf",
+        "ndcg_at_10": 0.19098575869094547,
+        "new_future_customers": 188,
+        "offline_inference_p50_ms": 6.098099984228611,
+        "offline_inference_p95_ms": 7.957850000821054,
+        "recall_at_10": 0.088385037793454,
+        "snapshot_id": "validation-20110901-bcbe73b35f5b-b995de65bce5"
+      },
+      "model": "itemcf",
+      "params": {
+        "neighbors": 20,
+        "weighting": "binary"
+      }
+    },
+    {
+      "metrics": {
+        "by_history_cohort": {
+          "one_invoice": {
+            "catalog_coverage": 0.09829738933030648,
+            "eligible_label_customers": 112,
+            "eligible_recall_at_10": 0.07043556503972252,
+            "evaluated_customers": 112,
+            "hit_rate_at_10": 0.5803571428571429,
+            "label_availability_macro": 0.9544651035109261,
+            "ndcg_at_10": 0.12780130365315662,
+            "recall_at_10": 0.06780086235357485
+          },
+          "over_five_invoices": {
+            "catalog_coverage": 0.11214528944381384,
+            "eligible_label_customers": 626,
+            "eligible_recall_at_10": 0.1042989095164924,
+            "evaluated_customers": 626,
+            "hit_rate_at_10": 0.6837060702875399,
+            "label_availability_macro": 0.9458958234926284,
+            "ndcg_at_10": 0.22880293220445333,
+            "recall_at_10": 0.09969578514541275
+          },
+          "two_to_five_invoices": {
+            "catalog_coverage": 0.12372304199772985,
+            "eligible_label_customers": 333,
+            "eligible_recall_at_10": 0.09851124634907922,
+            "evaluated_customers": 333,
+            "hit_rate_at_10": 0.6036036036036037,
+            "label_availability_macro": 0.9535478775865983,
+            "ndcg_at_10": 0.17812421206038398,
+            "recall_at_10": 0.09587343053148986
+          }
+        },
+        "by_rfm_segment": {
+          "frequent": {
+            "customers": 102,
+            "ndcg_at_10": 0.16319473099856924,
+            "recall_at_10": 0.07785309631258194
+          },
+          "less_recent_less_frequent": {
+            "customers": 90,
+            "ndcg_at_10": 0.1340367362843181,
+            "recall_at_10": 0.0756211178040765
+          },
+          "recent": {
+            "customers": 144,
+            "ndcg_at_10": 0.1433622681707022,
+            "recall_at_10": 0.08045835559353115
+          },
+          "recent_frequent": {
+            "customers": 735,
+            "ndcg_at_10": 0.22789987583840188,
+            "recall_at_10": 0.10285196029917844
+          }
+        },
+        "candidate_products": 4405,
+        "catalog_coverage": 0.18070374574347334,
+        "eligible_label_customers": 1071,
+        "eligible_recall_at_10": 0.0989581192119669,
+        "empty_label_historical_customers": 4153,
+        "evaluated_customers": 1071,
+        "fallback_customer_rate": 0.0,
+        "future_customers": 1259,
+        "future_distinct_label_pairs": 31814,
+        "historical_customers": 5224,
+        "hit_rate_at_10": 0.6479925303454716,
+        "k": 10,
+        "known_future_label_pairs": 30206,
+        "label_availability_macro": 0.9491711674471954,
+        "label_availability_micro": 0.9494562142453008,
+        "model": "itemcf",
+        "ndcg_at_10": 0.20248342127474248,
+        "new_future_customers": 188,
+        "offline_inference_p50_ms": 6.252499995753169,
+        "offline_inference_p95_ms": 9.627099963836372,
+        "recall_at_10": 0.09517190518358065,
+        "snapshot_id": "validation-20110901-bcbe73b35f5b-b995de65bce5"
+      },
+      "model": "itemcf",
+      "params": {
+        "neighbors": 20,
+        "weighting": "log"
+      }
+    },
+    {
+      "metrics": {
+        "by_history_cohort": {
+          "one_invoice": {
+            "catalog_coverage": 0.08422247446083996,
+            "eligible_label_customers": 112,
+            "eligible_recall_at_10": 0.06666332859936025,
+            "evaluated_customers": 112,
+            "hit_rate_at_10": 0.5267857142857143,
+            "label_availability_macro": 0.9544651035109261,
+            "ndcg_at_10": 0.1312075351926179,
+            "recall_at_10": 0.06491223326713175
+          },
+          "over_five_invoices": {
+            "catalog_coverage": 0.08217934165720772,
+            "eligible_label_customers": 626,
+            "eligible_recall_at_10": 0.08029150576255395,
+            "evaluated_customers": 626,
+            "hit_rate_at_10": 0.6405750798722045,
+            "label_availability_macro": 0.9458958234926284,
+            "ndcg_at_10": 0.18368179647461,
+            "recall_at_10": 0.07663045822762778
+          },
+          "two_to_five_invoices": {
+            "catalog_coverage": 0.09443813847900114,
+            "eligible_label_customers": 333,
+            "eligible_recall_at_10": 0.08852973342741735,
+            "evaluated_customers": 333,
+            "hit_rate_at_10": 0.5915915915915916,
+            "label_availability_macro": 0.9535478775865983,
+            "ndcg_at_10": 0.16051922293893117,
+            "recall_at_10": 0.08456501199536563
+          }
+        },
+        "by_rfm_segment": {
+          "frequent": {
+            "customers": 102,
+            "ndcg_at_10": 0.1329717685813249,
+            "recall_at_10": 0.06296975309115403
+          },
+          "less_recent_less_frequent": {
+            "customers": 90,
+            "ndcg_at_10": 0.14225222313284142,
+            "recall_at_10": 0.07340039853911429
+          },
+          "recent": {
+            "customers": 144,
+            "ndcg_at_10": 0.13248677528364972,
+            "recall_at_10": 0.07458817350465233
+          },
+          "recent_frequent": {
+            "customers": 735,
+            "ndcg_at_10": 0.18733201857856693,
+            "recall_at_10": 0.0811310725202484
+          }
+        },
+        "candidate_products": 4405,
+        "catalog_coverage": 0.15028376844494892,
+        "eligible_label_customers": 1071,
+        "eligible_recall_at_10": 0.081427802653424,
+        "empty_label_historical_customers": 4153,
+        "evaluated_customers": 1071,
+        "fallback_customer_rate": 0.0,
+        "future_customers": 1259,
+        "future_distinct_label_pairs": 31814,
+        "historical_customers": 5224,
+        "hit_rate_at_10": 0.6134453781512605,
+        "k": 10,
+        "known_future_label_pairs": 30206,
+        "label_availability_macro": 0.9491711674471954,
+        "label_availability_micro": 0.9494562142453008,
+        "model": "itemcf",
+        "ndcg_at_10": 0.17099248344849968,
+        "new_future_customers": 188,
+        "offline_inference_p50_ms": 7.2289000963792205,
+        "offline_inference_p95_ms": 11.156049964483827,
+        "recall_at_10": 0.07787206906710598,
+        "snapshot_id": "validation-20110901-bcbe73b35f5b-b995de65bce5"
+      },
+      "model": "itemcf",
+      "params": {
+        "neighbors": 50,
+        "weighting": "binary"
+      }
+    },
+    {
+      "metrics": {
+        "by_history_cohort": {
+          "one_invoice": {
+            "catalog_coverage": 0.0844494892167991,
+            "eligible_label_customers": 112,
+            "eligible_recall_at_10": 0.06655089301998274,
+            "evaluated_customers": 112,
+            "hit_rate_at_10": 0.5535714285714286,
+            "label_availability_macro": 0.9544651035109261,
+            "ndcg_at_10": 0.13372897698861388,
+            "recall_at_10": 0.06379204167281528
+          },
+          "over_five_invoices": {
+            "catalog_coverage": 0.09080590238365494,
+            "eligible_label_customers": 626,
+            "eligible_recall_at_10": 0.08489348647602722,
+            "evaluated_customers": 626,
+            "hit_rate_at_10": 0.6565495207667732,
+            "label_availability_macro": 0.9458958234926284,
+            "ndcg_at_10": 0.19632491603515623,
+            "recall_at_10": 0.0811873182866623
+          },
+          "two_to_five_invoices": {
+            "catalog_coverage": 0.09511918274687854,
+            "eligible_label_customers": 333,
+            "eligible_recall_at_10": 0.08912927190761391,
+            "evaluated_customers": 333,
+            "hit_rate_at_10": 0.5735735735735735,
+            "label_availability_macro": 0.9535478775865983,
+            "ndcg_at_10": 0.15658796308842043,
+            "recall_at_10": 0.08520110164692214
+          }
+        },
+        "by_rfm_segment": {
+          "frequent": {
+            "customers": 102,
+            "ndcg_at_10": 0.13149893650004113,
+            "recall_at_10": 0.06708486592969237
+          },
+          "less_recent_less_frequent": {
+            "customers": 90,
+            "ndcg_at_10": 0.13418158468013458,
+            "recall_at_10": 0.07081916425042704
+          },
+          "recent": {
+            "customers": 144,
+            "ndcg_at_10": 0.13207006125309104,
+            "recall_at_10": 0.0784675804939024
+          },
+          "recent_frequent": {
+            "customers": 735,
+            "ndcg_at_10": 0.19797756680886414,
+            "recall_at_10": 0.08411459056427481
+          }
+        },
+        "candidate_products": 4405,
+        "catalog_coverage": 0.15346197502837686,
+        "eligible_label_customers": 1071,
+        "eligible_recall_at_10": 0.084292315683909,
+        "empty_label_historical_customers": 4153,
+        "evaluated_customers": 1071,
+        "fallback_customer_rate": 0.0,
+        "future_customers": 1259,
+        "future_distinct_label_pairs": 31814,
+        "historical_customers": 5224,
+        "hit_rate_at_10": 0.6199813258636788,
+        "k": 10,
+        "known_future_label_pairs": 30206,
+        "label_availability_macro": 0.9491711674471954,
+        "label_availability_micro": 0.9494562142453008,
+        "model": "itemcf",
+        "ndcg_at_10": 0.17742374843060368,
+        "new_future_customers": 188,
+        "offline_inference_p50_ms": 6.518100039102137,
+        "offline_inference_p95_ms": 8.516150002833456,
+        "recall_at_10": 0.08061618745399719,
+        "snapshot_id": "validation-20110901-bcbe73b35f5b-b995de65bce5"
+      },
+      "model": "itemcf",
+      "params": {
+        "neighbors": 50,
+        "weighting": "log"
+      }
+    },
+    {
+      "metrics": {
+        "by_history_cohort": {
+          "one_invoice": {
+            "catalog_coverage": 0.11577752553916004,
+            "eligible_label_customers": 112,
+            "eligible_recall_at_10": 0.11188148059698605,
+            "evaluated_customers": 112,
+            "hit_rate_at_10": 0.6517857142857143,
+            "label_availability_macro": 0.9544651035109261,
+            "ndcg_at_10": 0.18027011957839043,
+            "recall_at_10": 0.10872067280021695
+          },
+          "over_five_invoices": {
+            "catalog_coverage": 0.22587968217934165,
+            "eligible_label_customers": 626,
+            "eligible_recall_at_10": 0.08684057373039733,
+            "evaluated_customers": 626,
+            "hit_rate_at_10": 0.5830670926517572,
+            "label_availability_macro": 0.9458958234926284,
+            "ndcg_at_10": 0.14050861858828265,
+            "recall_at_10": 0.08335920331249205
+          },
+          "two_to_five_invoices": {
+            "catalog_coverage": 0.16526674233825198,
+            "eligible_label_customers": 333,
+            "eligible_recall_at_10": 0.11302284777487756,
+            "evaluated_customers": 333,
+            "hit_rate_at_10": 0.6486486486486487,
+            "label_availability_macro": 0.9535478775865983,
+            "ndcg_at_10": 0.1816233097282677,
+            "recall_at_10": 0.1088634801565842
+          }
+        },
+        "by_rfm_segment": {
+          "frequent": {
+            "customers": 102,
+            "ndcg_at_10": 0.1792251871060124,
+            "recall_at_10": 0.09848533099614434
+          },
+          "less_recent_less_frequent": {
+            "customers": 90,
+            "ndcg_at_10": 0.17991411248450725,
+            "recall_at_10": 0.09162362820143764
+          },
+          "recent": {
+            "customers": 144,
+            "ndcg_at_10": 0.1674751541520233,
+            "recall_at_10": 0.1202633844234644
+          },
+          "recent_frequent": {
+            "customers": 735,
+            "ndcg_at_10": 0.14971367260169732,
+            "recall_at_10": 0.08843749369071004
+          }
+        },
+        "candidate_products": 4405,
+        "catalog_coverage": 0.2583427922814983,
+        "eligible_label_customers": 1071,
+        "eligible_recall_at_10": 0.09759993771346909,
+        "empty_label_historical_customers": 4153,
+        "evaluated_customers": 1071,
+        "fallback_customer_rate": 0.0,
+        "future_customers": 1259,
+        "future_distinct_label_pairs": 31814,
+        "historical_customers": 5224,
+        "hit_rate_at_10": 0.6106442577030813,
+        "k": 10,
+        "known_future_label_pairs": 30206,
+        "label_availability_macro": 0.9491711674471954,
+        "label_availability_micro": 0.9494562142453008,
+        "model": "als",
+        "ndcg_at_10": 0.15745024348137984,
+        "new_future_customers": 188,
+        "offline_inference_p50_ms": 1.4583999291062355,
+        "offline_inference_p95_ms": 1.718799991067499,
+        "recall_at_10": 0.09394128433182714,
+        "snapshot_id": "validation-20110901-bcbe73b35f5b-b995de65bce5"
+      },
+      "model": "als",
+      "params": {
+        "confidence_scale": 20.0,
+        "factors": 32,
+        "iterations": 10,
+        "regularization": 0.05,
+        "seed": 42
+      }
+    },
+    {
+      "metrics": {
+        "by_history_cohort": {
+          "one_invoice": {
+            "catalog_coverage": 0.1155505107832009,
+            "eligible_label_customers": 112,
+            "eligible_recall_at_10": 0.11262381856711148,
+            "evaluated_customers": 112,
+            "hit_rate_at_10": 0.6517857142857143,
+            "label_availability_macro": 0.9544651035109261,
+            "ndcg_at_10": 0.17815894643691274,
+            "recall_at_10": 0.10945782576951278
+          },
+          "over_five_invoices": {
+            "catalog_coverage": 0.22905788876276958,
+            "eligible_label_customers": 626,
+            "eligible_recall_at_10": 0.08625016711796228,
+            "evaluated_customers": 626,
+            "hit_rate_at_10": 0.5958466453674122,
+            "label_availability_macro": 0.9458958234926284,
+            "ndcg_at_10": 0.14014094696774013,
+            "recall_at_10": 0.08276072120510863
+          },
+          "two_to_five_invoices": {
+            "catalog_coverage": 0.16549375709421113,
+            "eligible_label_customers": 333,
+            "eligible_recall_at_10": 0.11133825775660643,
+            "evaluated_customers": 333,
+            "hit_rate_at_10": 0.6426426426426426,
+            "label_availability_macro": 0.9535478775865983,
+            "ndcg_at_10": 0.1802133431906396,
+            "recall_at_10": 0.1072664561619564
+          }
+        },
+        "by_rfm_segment": {
+          "frequent": {
+            "customers": 102,
+            "ndcg_at_10": 0.1764637345317813,
+            "recall_at_10": 0.09795831892340952
+          },
+          "less_recent_less_frequent": {
+            "customers": 90,
+            "ndcg_at_10": 0.174004054272805,
+            "recall_at_10": 0.09027298832863027
+          },
+          "recent": {
+            "customers": 144,
+            "ndcg_at_10": 0.16862888248737773,
+            "recall_at_10": 0.12124021705790573
+          },
+          "recent_frequent": {
+            "customers": 735,
+            "ndcg_at_10": 0.14932088870781768,
+            "recall_at_10": 0.08736368588627483
+          }
+        },
+        "candidate_products": 4405,
+        "catalog_coverage": 0.26174801362088534,
+        "eligible_label_customers": 1071,
+        "eligible_recall_at_10": 0.09680869479767583,
+        "empty_label_historical_customers": 4153,
+        "evaluated_customers": 1071,
+        "fallback_customer_rate": 0.0,
+        "future_customers": 1259,
+        "future_distinct_label_pairs": 31814,
+        "historical_customers": 5224,
+        "hit_rate_at_10": 0.6162464985994398,
+        "k": 10,
+        "known_future_label_pairs": 30206,
+        "label_availability_macro": 0.9491711674471954,
+        "label_availability_micro": 0.9494562142453008,
+        "model": "als",
+        "ndcg_at_10": 0.15657617001421337,
+        "new_future_customers": 188,
+        "offline_inference_p50_ms": 1.127899973653257,
+        "offline_inference_p95_ms": 1.690200064331293,
+        "recall_at_10": 0.09317200547387014,
+        "snapshot_id": "validation-20110901-bcbe73b35f5b-b995de65bce5"
+      },
+      "model": "als",
+      "params": {
+        "confidence_scale": 20.0,
+        "factors": 32,
+        "iterations": 10,
+        "regularization": 0.2,
+        "seed": 42
+      }
+    },
+    {
+      "metrics": {
+        "by_history_cohort": {
+          "one_invoice": {
+            "catalog_coverage": 0.1221339387060159,
+            "eligible_label_customers": 112,
+            "eligible_recall_at_10": 0.11994994333450594,
+            "evaluated_customers": 112,
+            "hit_rate_at_10": 0.625,
+            "label_availability_macro": 0.9544651035109261,
+            "ndcg_at_10": 0.1968962815960145,
+            "recall_at_10": 0.11640948746652316
+          },
+          "over_five_invoices": {
+            "catalog_coverage": 0.2517593643586833,
+            "eligible_label_customers": 626,
+            "eligible_recall_at_10": 0.08920502073061824,
+            "evaluated_customers": 626,
+            "hit_rate_at_10": 0.5575079872204473,
+            "label_availability_macro": 0.9458958234926284,
+            "ndcg_at_10": 0.12729176807781645,
+            "recall_at_10": 0.08661508282155522
+          },
+          "two_to_five_invoices": {
+            "catalog_coverage": 0.19091940976163452,
+            "eligible_label_customers": 333,
+            "eligible_recall_at_10": 0.11719506729035123,
+            "evaluated_customers": 333,
+            "hit_rate_at_10": 0.6486486486486487,
+            "label_availability_macro": 0.9535478775865983,
+            "ndcg_at_10": 0.18508627687742807,
+            "recall_at_10": 0.11415072904770508
+          }
+        },
+        "by_rfm_segment": {
+          "frequent": {
+            "customers": 102,
+            "ndcg_at_10": 0.18261781301153937,
+            "recall_at_10": 0.10365637377919683
+          },
+          "less_recent_less_frequent": {
+            "customers": 90,
+            "ndcg_at_10": 0.17656010759102744,
+            "recall_at_10": 0.09016614048729658
+          },
+          "recent": {
+            "customers": 144,
+            "ndcg_at_10": 0.19270179069724822,
+            "recall_at_10": 0.13142561008684786
+          },
+          "recent_frequent": {
+            "customers": 735,
+            "ndcg_at_10": 0.13755683821071704,
+            "recall_at_10": 0.09205157359671985
+          }
+        },
+        "candidate_products": 4405,
+        "catalog_coverage": 0.29284903518728717,
+        "eligible_label_customers": 1071,
+        "eligible_recall_at_10": 0.10112296362139929,
+        "empty_label_historical_customers": 4153,
+        "evaluated_customers": 1071,
+        "fallback_customer_rate": 0.0,
+        "future_customers": 1259,
+        "future_distinct_label_pairs": 31814,
+        "historical_customers": 5224,
+        "hit_rate_at_10": 0.5929038281979458,
+        "k": 10,
+        "known_future_label_pairs": 30206,
+        "label_availability_macro": 0.9491711674471954,
+        "label_availability_micro": 0.9494562142453008,
+        "model": "als",
+        "ndcg_at_10": 0.15254039267567718,
+        "new_future_customers": 188,
+        "offline_inference_p50_ms": 1.531900023110211,
+        "offline_inference_p95_ms": 1.7923499690368772,
+        "recall_at_10": 0.09829234100413628,
+        "snapshot_id": "validation-20110901-bcbe73b35f5b-b995de65bce5"
+      },
+      "model": "als",
+      "params": {
+        "confidence_scale": 20.0,
+        "factors": 64,
+        "iterations": 10,
+        "regularization": 0.05,
+        "seed": 42
+      }
+    },
+    {
+      "metrics": {
+        "by_history_cohort": {
+          "one_invoice": {
+            "catalog_coverage": 0.12190692395005676,
+            "eligible_label_customers": 112,
+            "eligible_recall_at_10": 0.11917173789381307,
+            "evaluated_customers": 112,
+            "hit_rate_at_10": 0.6071428571428571,
+            "label_availability_macro": 0.9544651035109261,
+            "ndcg_at_10": 0.1981801742748117,
+            "recall_at_10": 0.11560000713659585
+          },
+          "over_five_invoices": {
+            "catalog_coverage": 0.24948921679909195,
+            "eligible_label_customers": 626,
+            "eligible_recall_at_10": 0.08728157229153044,
+            "evaluated_customers": 626,
+            "hit_rate_at_10": 0.5623003194888179,
+            "label_availability_macro": 0.9458958234926284,
+            "ndcg_at_10": 0.12794011491800955,
+            "recall_at_10": 0.08490837282944864
+          },
+          "two_to_five_invoices": {
+            "catalog_coverage": 0.19046538024971624,
+            "eligible_label_customers": 333,
+            "eligible_recall_at_10": 0.11991147913761002,
+            "evaluated_customers": 333,
+            "hit_rate_at_10": 0.6516516516516516,
+            "label_availability_macro": 0.9535478775865983,
+            "ndcg_at_10": 0.18532795605871447,
+            "recall_at_10": 0.11533649169428233
+          }
+        },
+        "by_rfm_segment": {
+          "frequent": {
+            "customers": 102,
+            "ndcg_at_10": 0.1786255691921954,
+            "recall_at_10": 0.101787087513683
+          },
+          "less_recent_less_frequent": {
+            "customers": 90,
+            "ndcg_at_10": 0.18093004724233414,
+            "recall_at_10": 0.09492017657466602
+          },
+          "recent": {
+            "customers": 144,
+            "ndcg_at_10": 0.19383712368211542,
+            "recall_at_10": 0.13210571766984083
+          },
+          "recent_frequent": {
+            "customers": 735,
+            "ndcg_at_10": 0.13821067034743698,
+            "recall_at_10": 0.09055587994851282
+          }
+        },
+        "candidate_products": 4405,
+        "catalog_coverage": 0.2923950056753689,
+        "eligible_label_customers": 1071,
+        "eligible_recall_at_10": 0.10076192479125047,
+        "empty_label_historical_customers": 4153,
+        "evaluated_customers": 1071,
+        "fallback_customer_rate": 0.0,
+        "future_customers": 1259,
+        "future_distinct_label_pairs": 31814,
+        "historical_customers": 5224,
+        "hit_rate_at_10": 0.5947712418300654,
+        "k": 10,
+        "known_future_label_pairs": 30206,
+        "label_availability_macro": 0.9491711674471954,
+        "label_availability_micro": 0.9494562142453008,
+        "model": "als",
+        "ndcg_at_10": 0.15312875894024724,
+        "new_future_customers": 188,
+        "offline_inference_p50_ms": 1.5320999082177877,
+        "offline_inference_p95_ms": 2.2017000010237098,
+        "recall_at_10": 0.09757879918275406,
+        "snapshot_id": "validation-20110901-bcbe73b35f5b-b995de65bce5"
+      },
+      "model": "als",
+      "params": {
+        "confidence_scale": 20.0,
+        "factors": 64,
+        "iterations": 10,
+        "regularization": 0.2,
+        "seed": 42
+      }
+    }
+  ],
+  "frozen_before_test": true,
+  "min_invoices": 1,
+  "model_params": {
+    "als": {
+      "confidence_scale": 20.0,
+      "factors": 32,
+      "iterations": 10,
+      "regularization": 0.05,
+      "seed": 42
+    },
+    "itemcf": {
+      "neighbors": 20,
+      "weighting": "log"
+    },
+    "popularity": {
+      "history_days": 90
+    }
+  },
+  "routing_experiments": [
+    {
+      "metrics": {
+        "by_history_cohort": {
+          "one_invoice": {
+            "catalog_coverage": 0.09829738933030648,
+            "eligible_label_customers": 112,
+            "eligible_recall_at_10": 0.07043556503972252,
+            "evaluated_customers": 112,
+            "hit_rate_at_10": 0.5803571428571429,
+            "label_availability_macro": 0.9544651035109261,
+            "ndcg_at_10": 0.12780130365315662,
+            "recall_at_10": 0.06780086235357485
+          },
+          "over_five_invoices": {
+            "catalog_coverage": 0.11214528944381384,
+            "eligible_label_customers": 626,
+            "eligible_recall_at_10": 0.1042989095164924,
+            "evaluated_customers": 626,
+            "hit_rate_at_10": 0.6837060702875399,
+            "label_availability_macro": 0.9458958234926284,
+            "ndcg_at_10": 0.22880293220445333,
+            "recall_at_10": 0.09969578514541275
+          },
+          "two_to_five_invoices": {
+            "catalog_coverage": 0.12372304199772985,
+            "eligible_label_customers": 333,
+            "eligible_recall_at_10": 0.09851124634907922,
+            "evaluated_customers": 333,
+            "hit_rate_at_10": 0.6036036036036037,
+            "label_availability_macro": 0.9535478775865983,
+            "ndcg_at_10": 0.17812421206038398,
+            "recall_at_10": 0.09587343053148986
+          }
+        },
+        "by_rfm_segment": {
+          "frequent": {
+            "customers": 102,
+            "ndcg_at_10": 0.16319473099856924,
+            "recall_at_10": 0.07785309631258194
+          },
+          "less_recent_less_frequent": {
+            "customers": 90,
+            "ndcg_at_10": 0.1340367362843181,
+            "recall_at_10": 0.0756211178040765
+          },
+          "recent": {
+            "customers": 144,
+            "ndcg_at_10": 0.1433622681707022,
+            "recall_at_10": 0.08045835559353115
+          },
+          "recent_frequent": {
+            "customers": 735,
+            "ndcg_at_10": 0.22789987583840188,
+            "recall_at_10": 0.10285196029917844
+          }
+        },
+        "candidate_products": 4405,
+        "catalog_coverage": 0.18070374574347334,
+        "eligible_label_customers": 1071,
+        "eligible_recall_at_10": 0.0989581192119669,
+        "empty_label_historical_customers": 4153,
+        "evaluated_customers": 1071,
+        "fallback_customer_rate": 0.0,
+        "future_customers": 1259,
+        "future_distinct_label_pairs": 31814,
+        "historical_customers": 5224,
+        "hit_rate_at_10": 0.6479925303454716,
+        "k": 10,
+        "known_future_label_pairs": 30206,
+        "label_availability_macro": 0.9491711674471954,
+        "label_availability_micro": 0.9494562142453008,
+        "model": "itemcf",
+        "ndcg_at_10": 0.20248342127474248,
+        "new_future_customers": 188,
+        "offline_inference_p50_ms": 8.12380004208535,
+        "offline_inference_p95_ms": 16.42564998473972,
+        "recall_at_10": 0.09517190518358065,
+        "snapshot_id": "validation-20110901-bcbe73b35f5b-b995de65bce5"
+      },
+      "min_invoices": 1
+    },
+    {
+      "metrics": {
+        "by_history_cohort": {
+          "one_invoice": {
+            "catalog_coverage": 0.0022701475595913734,
+            "eligible_label_customers": 112,
+            "eligible_recall_at_10": 0.027300795489649005,
+            "evaluated_customers": 112,
+            "hit_rate_at_10": 0.36607142857142855,
+            "label_availability_macro": 0.9544651035109261,
+            "ndcg_at_10": 0.0586522297475007,
+            "recall_at_10": 0.026185090777555955
+          },
+          "over_five_invoices": {
+            "catalog_coverage": 0.11214528944381384,
+            "eligible_label_customers": 626,
+            "eligible_recall_at_10": 0.1042989095164924,
+            "evaluated_customers": 626,
+            "hit_rate_at_10": 0.6837060702875399,
+            "label_availability_macro": 0.9458958234926284,
+            "ndcg_at_10": 0.22880293220445333,
+            "recall_at_10": 0.09969578514541275
+          },
+          "two_to_five_invoices": {
+            "catalog_coverage": 0.12372304199772985,
+            "eligible_label_customers": 333,
+            "eligible_recall_at_10": 0.09851124634907922,
+            "evaluated_customers": 333,
+            "hit_rate_at_10": 0.6036036036036037,
+            "label_availability_macro": 0.9535478775865983,
+            "ndcg_at_10": 0.17812421206038398,
+            "recall_at_10": 0.09587343053148986
+          }
+        },
+        "by_rfm_segment": {
+          "frequent": {
+            "customers": 102,
+            "ndcg_at_10": 0.16319473099856924,
+            "recall_at_10": 0.07785309631258194
+          },
+          "less_recent_less_frequent": {
+            "customers": 90,
+            "ndcg_at_10": 0.09618736819872802,
+            "recall_at_10": 0.05008851977883126
+          },
+          "recent": {
+            "customers": 144,
+            "ndcg_at_10": 0.11323551018646356,
+            "recall_at_10": 0.06404840702240586
+          },
+          "recent_frequent": {
+            "customers": 735,
+            "ndcg_at_10": 0.22789987583840188,
+            "recall_at_10": 0.10285196029917844
+          }
+        },
+        "candidate_products": 4405,
+        "catalog_coverage": 0.1525539160045403,
+        "eligible_label_customers": 1071,
+        "eligible_recall_at_10": 0.094447293638103,
+        "empty_label_historical_customers": 4153,
+        "evaluated_customers": 1071,
+        "fallback_customer_rate": 0.10457516339869281,
+        "future_customers": 1259,
+        "future_distinct_label_pairs": 31814,
+        "historical_customers": 5224,
+        "hit_rate_at_10": 0.6255835667600373,
+        "k": 10,
+        "known_future_label_pairs": 30206,
+        "label_availability_macro": 0.9491711674471954,
+        "label_availability_micro": 0.9494562142453008,
+        "model": "itemcf",
+        "ndcg_at_10": 0.19525214557219023,
+        "new_future_customers": 188,
+        "offline_inference_p50_ms": 6.38559996150434,
+        "offline_inference_p95_ms": 8.73710005544126,
+        "recall_at_10": 0.09081992907105581,
+        "snapshot_id": "validation-20110901-bcbe73b35f5b-b995de65bce5"
+      },
+      "min_invoices": 2
+    },
+    {
+      "metrics": {
+        "by_history_cohort": {
+          "one_invoice": {
+            "catalog_coverage": 0.0022701475595913734,
+            "eligible_label_customers": 112,
+            "eligible_recall_at_10": 0.027300795489649005,
+            "evaluated_customers": 112,
+            "hit_rate_at_10": 0.36607142857142855,
+            "label_availability_macro": 0.9544651035109261,
+            "ndcg_at_10": 0.0586522297475007,
+            "recall_at_10": 0.026185090777555955
+          },
+          "over_five_invoices": {
+            "catalog_coverage": 0.11214528944381384,
+            "eligible_label_customers": 626,
+            "eligible_recall_at_10": 0.1042989095164924,
+            "evaluated_customers": 626,
+            "hit_rate_at_10": 0.6837060702875399,
+            "label_availability_macro": 0.9458958234926284,
+            "ndcg_at_10": 0.22880293220445333,
+            "recall_at_10": 0.09969578514541275
+          },
+          "two_to_five_invoices": {
+            "catalog_coverage": 0.09489216799091942,
+            "eligible_label_customers": 333,
+            "eligible_recall_at_10": 0.08336754797608614,
+            "evaluated_customers": 333,
+            "hit_rate_at_10": 0.5645645645645646,
+            "label_availability_macro": 0.9535478775865983,
+            "ndcg_at_10": 0.15740179033878599,
+            "recall_at_10": 0.08085904933047594
+          }
+        },
+        "by_rfm_segment": {
+          "frequent": {
+            "customers": 102,
+            "ndcg_at_10": 0.16319473099856924,
+            "recall_at_10": 0.07785309631258194
+          },
+          "less_recent_less_frequent": {
+            "customers": 90,
+            "ndcg_at_10": 0.07387728675412687,
+            "recall_at_10": 0.04164455247525218
+          },
+          "recent": {
+            "customers": 144,
+            "ndcg_at_10": 0.07925871085814394,
+            "recall_at_10": 0.0346051300597981
+          },
+          "recent_frequent": {
+            "customers": 735,
+            "ndcg_at_10": 0.22789987583840188,
+            "recall_at_10": 0.10285196029917844
+          }
+        },
+        "candidate_products": 4405,
+        "catalog_coverage": 0.13348467650397275,
+        "eligible_label_customers": 1071,
+        "eligible_recall_at_10": 0.08973874876582784,
+        "empty_label_historical_customers": 4153,
+        "evaluated_customers": 1071,
+        "fallback_customer_rate": 0.19607843137254902,
+        "future_customers": 1259,
+        "future_distinct_label_pairs": 31814,
+        "historical_customers": 5224,
+        "hit_rate_at_10": 0.6134453781512605,
+        "k": 10,
+        "known_future_label_pairs": 30206,
+        "label_availability_macro": 0.9491711674471954,
+        "label_availability_micro": 0.9494562142453008,
+        "model": "itemcf",
+        "ndcg_at_10": 0.1888090396587522,
+        "new_future_customers": 188,
+        "offline_inference_p50_ms": 5.7604999747127295,
+        "offline_inference_p95_ms": 7.638649956788868,
+        "recall_at_10": 0.08615159205897585,
+        "snapshot_id": "validation-20110901-bcbe73b35f5b-b995de65bce5"
+      },
+      "min_invoices": 3
+    }
+  ],
+  "selected_model": "itemcf",
+  "selected_params": {
+    "neighbors": 20,
+    "weighting": "log"
+  },
+  "selected_routed_metrics": {
+    "by_history_cohort": {
+      "one_invoice": {
+        "catalog_coverage": 0.09829738933030648,
+        "eligible_label_customers": 112,
+        "eligible_recall_at_10": 0.07043556503972252,
+        "evaluated_customers": 112,
+        "hit_rate_at_10": 0.5803571428571429,
+        "label_availability_macro": 0.9544651035109261,
+        "ndcg_at_10": 0.12780130365315662,
+        "recall_at_10": 0.06780086235357485
+      },
+      "over_five_invoices": {
+        "catalog_coverage": 0.11214528944381384,
+        "eligible_label_customers": 626,
+        "eligible_recall_at_10": 0.1042989095164924,
+        "evaluated_customers": 626,
+        "hit_rate_at_10": 0.6837060702875399,
+        "label_availability_macro": 0.9458958234926284,
+        "ndcg_at_10": 0.22880293220445333,
+        "recall_at_10": 0.09969578514541275
+      },
+      "two_to_five_invoices": {
+        "catalog_coverage": 0.12372304199772985,
+        "eligible_label_customers": 333,
+        "eligible_recall_at_10": 0.09851124634907922,
+        "evaluated_customers": 333,
+        "hit_rate_at_10": 0.6036036036036037,
+        "label_availability_macro": 0.9535478775865983,
+        "ndcg_at_10": 0.17812421206038398,
+        "recall_at_10": 0.09587343053148986
+      }
+    },
+    "by_rfm_segment": {
+      "frequent": {
+        "customers": 102,
+        "ndcg_at_10": 0.16319473099856924,
+        "recall_at_10": 0.07785309631258194
+      },
+      "less_recent_less_frequent": {
+        "customers": 90,
+        "ndcg_at_10": 0.1340367362843181,
+        "recall_at_10": 0.0756211178040765
+      },
+      "recent": {
+        "customers": 144,
+        "ndcg_at_10": 0.1433622681707022,
+        "recall_at_10": 0.08045835559353115
+      },
+      "recent_frequent": {
+        "customers": 735,
+        "ndcg_at_10": 0.22789987583840188,
+        "recall_at_10": 0.10285196029917844
+      }
+    },
+    "candidate_products": 4405,
+    "catalog_coverage": 0.18070374574347334,
+    "eligible_label_customers": 1071,
+    "eligible_recall_at_10": 0.0989581192119669,
+    "empty_label_historical_customers": 4153,
+    "evaluated_customers": 1071,
+    "fallback_customer_rate": 0.0,
+    "future_customers": 1259,
+    "future_distinct_label_pairs": 31814,
+    "historical_customers": 5224,
+    "hit_rate_at_10": 0.6479925303454716,
+    "k": 10,
+    "known_future_label_pairs": 30206,
+    "label_availability_macro": 0.9491711674471954,
+    "label_availability_micro": 0.9494562142453008,
+    "model": "itemcf",
+    "ndcg_at_10": 0.20248342127474248,
+    "new_future_customers": 188,
+    "offline_inference_p50_ms": 8.12380004208535,
+    "offline_inference_p95_ms": 16.42564998473972,
+    "recall_at_10": 0.09517190518358065,
+    "snapshot_id": "validation-20110901-bcbe73b35f5b-b995de65bce5"
+  },
+  "selection_metric": "ndcg_at_10_validation",
+  "simplicity_tolerance_absolute": 0.005,
+  "source_hash": "bcbe73b35f5b7babf197fb0cb983a11f5d9ff929078d4aa53d171b1f2df2e980",
+  "validation_snapshot_id": "validation-20110901-bcbe73b35f5b-b995de65bce5"
+}
