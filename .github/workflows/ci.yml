@@ -33,3 +33,11 @@ jobs:
           node --check scripts/smoke_ui_logic.cjs
       - name: Fixture tests
         run: uv run --no-sync pytest tests -q
+  container-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Build API image
+        run: docker build --tag retailmind:ci .
+      - name: Import API inside image
+        run: docker run --rm retailmind:ci /app/.venv/bin/python -c "from retailmind.api import app; assert app.title == 'RetailMind API'"
