@@ -13,7 +13,8 @@ from typing import Any, Literal
 import pandas as pd
 from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.exceptions import RequestValidationError
-from fastapi.responses import JSONResponse, Response
+from fastapi.responses import JSONResponse, RedirectResponse, Response
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 from retailmind.config import ProjectConfig, load_config
@@ -68,6 +69,13 @@ def create_app(config: ProjectConfig | None = None) -> FastAPI:
         app.state.services.clear()
 
     app = FastAPI(title="RetailMind API", version="1.0.0", lifespan=lifespan)
+    ui_dir = config.root / "ui"
+    if ui_dir.is_dir():
+        app.mount("/ui", StaticFiles(directory=ui_dir, html=True), name="provisional-ui")
+
+        @app.get("/", include_in_schema=False)
+        def home():
+            return RedirectResponse("/ui/")
 
     @app.middleware("http")
     async def request_log(request: Request, call_next):

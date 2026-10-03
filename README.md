@@ -4,7 +4,7 @@ RetailMind ranks up to 10 products for an identified retail customer at a histor
 
 ## Current status
 
-The data pipeline, two cutoff snapshots, validation selection, frozen test evaluation, model card, error analysis and FastAPI are implemented and verified locally. A final six-page frontend based on the project owner's design remains pending. Docker files are prepared but Docker is unavailable on the development host, so container build verification remains pending. GitHub CI is configured; its run status must be checked on the PR. Public hosting and business impact are not claimed.
+The data pipeline, two cutoff snapshots, validation selection, frozen test evaluation, model card, error analysis and FastAPI are implemented and verified locally. A provisional six-page inspection UI is available at `/ui/`; the final frontend based on the project owner's design remains pending. Docker files are prepared but Docker is unavailable on the development host, so container build verification remains pending. Backend PR #7 CI passed; the provisional UI CI run is pending. Public hosting and business impact are not claimed.
 
 ## Dataset and protocol
 
@@ -56,7 +56,7 @@ $env:OMP_NUM_THREADS = '4'
 .\.venv\Scripts\uvicorn.exe retailmind.api:app --host 127.0.0.1 --port 8000
 ```
 
-Open [interactive API docs](http://127.0.0.1:8000/docs) or call:
+Open the [provisional six-page UI](http://127.0.0.1:8000/ui/) or [interactive API docs](http://127.0.0.1:8000/docs). The provisional UI uses the real API, including snapshot switching, model comparison, explicit new-customer recommendations, replay and CSV export. Its final visual design and desktop/mobile browser verification remain pending. To call the API directly:
 
 ```powershell
 Invoke-RestMethod 'http://127.0.0.1:8000/health'
@@ -73,6 +73,6 @@ After generating local `data/processed` and `artifacts` bundles, `docker compose
 
 ## Verification and performance
 
-A fresh `uv sync --locked --python 3.11 --extra dev` into `.venv_clean` installed 37 packages; 11 fixture tests and Ruff lint passed locally. The 200-request sequential loopback benchmark on Windows 10, CPython 3.11.15, four logical CPUs and one Uvicorn worker measured 32.264 ms p50, 109.029 ms p95, and 2,385.166 ms startup to ready. It used 20 deterministic historical customers, 20 warmups and top-10 recommendations with evidence; it is not a concurrency or UI benchmark. The method and raw summary are in [api_benchmark.json](reports/api_benchmark.json). Rerun with `python scripts/benchmark_api.py` after bundles exist.
+A fresh `uv sync --locked --python 3.11 --extra dev` into `.venv_clean` installed 37 packages; 11 fixture tests and Ruff lint passed locally. The 200-request sequential loopback benchmark on Windows 10, CPython 3.11.15, four logical CPUs and one Uvicorn worker measured 32.264 ms p50, 109.029 ms p95, and 2,385.166 ms startup to ready. It used 20 deterministic historical customers, 20 warmups and top-10 recommendations with evidence; it is not a concurrency or UI benchmark. The method and raw summary are in [api_benchmark.json](reports/api_benchmark.json). Rerun with `python scripts/benchmark_api.py` after bundles exist. With the API listening on port 8000, set `$env:RETAILMIND_API_URL = 'http://127.0.0.1:8000'` and run `node scripts/smoke_ui_logic.cjs` to check all six provisional page controllers against real API responses; it is not a visual browser test.
 
-See [api_contract.md](docs/api_contract.md), [architecture.md](docs/architecture.md), [data_dictionary.md](docs/data_dictionary.md), [decisions.md](docs/decisions.md), [progress.md](docs/progress.md), [learning_path.md](docs/learning_path.md) and [code_walkthrough.md](docs/code_walkthrough.md). The frontend will consume the API without reimplementing ranking logic.
+See [demo_script.md](docs/demo_script.md), [api_contract.md](docs/api_contract.md), [architecture.md](docs/architecture.md), [data_dictionary.md](docs/data_dictionary.md), [decisions.md](docs/decisions.md), [progress.md](docs/progress.md), [learning_path.md](docs/learning_path.md) and [code_walkthrough.md](docs/code_walkthrough.md). The provisional UI consumes this API; the final design will keep recommendation logic in the service.

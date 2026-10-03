@@ -40,3 +40,9 @@
 - **Decision:** Keep the final frontend framework and layout open until the owner supplies the visual design. Expose overview, customer, product, quality, evaluation and replay data through Python API routes so the frontend can be implemented without duplicating business logic. Prepare Docker files now and mark the build unverified.
 - **Reason:** The design may need more customization than Streamlit; the original plan's default should be reconsidered from the actual handoff. Docker is not installed on this host.
 - **Evidence:** Frontend handoff requested asynchronously; `Dockerfile` and `compose.yaml` written, `docker --version` reported command not found.
+## 2026-10-03 — Provisional inspection UI
+
+- **Decision:** Serve a small six-page HTML/CSS/JS interface from FastAPI at `/ui/` while waiting for the owner's final design. It calls the existing API and keeps all recommendation logic on the Python side.
+- **Reason:** This allows the snapshot, model, new-customer, replay, product, evaluation and quality flows to be exercised now without committing to Streamlit or a separate frontend framework before seeing the design.
+- **Evidence:** `ui/` and `scripts/smoke_ui_logic.cjs`. The smoke script exercised all six controllers, validation/test switching, ALS selection, explicit new-customer mode and an unknown-customer error against the real local API; JavaScript syntax and Python checks passed.
+- **Limit:** The browser automation tool was blocked by an automatic usage-limit review and then a Windows sandbox helper failure, so the visual desktop/mobile interaction check and screenshots remain pending. This interface is explicitly provisional and is not the approved design.

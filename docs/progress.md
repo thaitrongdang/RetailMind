@@ -88,3 +88,16 @@
 
 **Next actions:** Review and commit this scoped backend/report change, push and open a PR; verify CI and merge. Integrate the supplied frontend design into six functional pages, test desktop/mobile and snapshot switching, then verify Docker where available and prepare final screenshots, demo, case study and V1 release only after the whole project passes acceptance.
 **GitHub update:** Commit `cf89ab1` was pushed on `feat/v1-evaluation-api`; [PR #7](https://github.com/thaitrongdang/RetailMind/pull/7) was opened and attached to the Codex task. [CI run 37128965178](https://github.com/thaitrongdang/RetailMind/actions/runs/37128965178) completed successfully; its `fixture-tests` job passed. The PR is pending a small API contract documentation update and final self-review/merge. No V1 release or final frontend is claimed.
+## 2026-10-03 — Provisional six-page UI checkpoint
+
+**Status:** `in_progress`. Final design integration is still `blocked` by the missing owner handoff; a functional provisional inspection UI is implemented locally.
+
+**GitHub:** PR #7 passed its latest [CI run 37129134360](https://github.com/thaitrongdang/RetailMind/actions/runs/37129134360), was squash-merged to `main` as commit `548d1ff7c9ea15872808e1e6cff0117f7b47c316`, and local `main` was fast-forwarded cleanly. Branch `feat/v1-provisional-ui` was created from that commit; [Issue #8](https://github.com/thaitrongdang/RetailMind/issues/8) tracks this scoped UI work. This branch currently has uncommitted UI changes; no UI PR/CI/merge or release is claimed yet.
+
+**Implementation:** `ui/index.html`, `ui/style.css` and `ui/app.js` provide six provisional pages served at `/ui/`: Overview, Customers, Historical Replay, Products, Model Evaluation and Data Quality. All visible figures come from real API routes. Snapshot and model selection, explicit new-customer mode, CSV downloads, evidence, observed replay labels, loading/empty/error states and mobile CSS are included. The frontend does not implement recommendation algorithms. `Dockerfile` now copies UI assets. CI gains JavaScript syntax checks.
+
+**Checks:** `node --check ui/app.js` passed; Python compile and Ruff checks passed. A hidden local Uvicorn server responded 200 at `/health`, `/ui/` and `/ui/app.js`. `node scripts/smoke_ui_logic.cjs` exercised all six page controllers over the real local HTTP API, switched to validation, selected ALS, opened new-customer mode and verified unknown-customer error handling. These are DOM-light integration checks, not visual browser validation.
+
+**Browser blocker:** The `agent-browser` CLI is unavailable. The available browser-control tool was first rejected by automatic approval review due to a usage limit, then its runtime failed with `windows sandbox failed: helper_unknown_error: setup refresh had errors`. No browser interaction or screenshot was obtained. Desktop/mobile visual acceptance remains pending, as does the owner-supplied final design. Continue non-visual tests and documentation; do not claim the final V1 frontend is complete.
+
+**Next actions:** Commit this provisional UI in a scoped PR, verify CI and merge. When the owner supplies the design, implement the agreed final layout/framework, run real browser checks and screenshots, then verify Docker on a Docker host and complete the V1 delivery materials/release.

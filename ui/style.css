@@ -1,0 +1,100 @@
+:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#1d2b32;background:#f4f7f7;font-size:15px}
+*{box-sizing:border-box}
+body{margin:0}
+button,input,select{font:inherit}
+button{cursor:pointer}
+.shell{min-height:100vh;display:grid;grid-template-columns:250px minmax(0,1fr)}
+.sidebar{background:#102e35;color:#e8f4f1;padding:26px 18px;display:flex;flex-direction:column;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;padding:0 7px}
+.brand-mark{height:40px;width:40px;display:grid;place-items:center;background:#77d1b3;color:#10352e;border-radius:12px;font-weight:800;font-size:22px}
+.brand strong,.brand small{display:block}
+.brand strong{font-size:19px;letter-spacing:-.04em}
+.brand small{color:#a8c5c3;font-size:11px;margin-top:2px}
+.provisional{border:1px solid #44716e;border-radius:7px;padding:8px 10px;color:#c6e6da;font-size:11px;text-transform:uppercase;letter-spacing:.08em}
+nav{display:grid;gap:5px}
+nav button{border:0;text-align:left;background:transparent;color:#b8d4d0;padding:11px 13px;border-radius:8px}
+nav button:hover,nav button:focus-visible{background:#25515a;color:white}
+nav button.active{background:#d2f3e7;color:#103b37;font-weight:700}
+.sidebar-note{margin-top:auto;color:#a8c5c3;font-size:12px;line-height:1.5;padding:0 8px}
+.workspace{min-width:0;display:flex;flex-direction:column}
+.topbar{min-height:114px;background:#fff;border-bottom:1px solid #dce5e4;padding:27px clamp(24px,4vw,60px);display:flex;align-items:center;justify-content:space-between;gap:20px}
+.eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#508278;font-weight:700}
+.topbar h1{font-size:30px;letter-spacing:-.04em;margin:4px 0 0}
+.snapshot-control{display:grid;gap:6px}
+.snapshot-control label,.field label{font-size:12px;font-weight:700;color:#5a7377}
+.snapshot-control select,.field input,.field select{border:1px solid #c6d7d5;background:white;color:#1d2b32;border-radius:8px;padding:10px 12px;min-height:41px}
+.snapshot-control select:focus-visible,.field input:focus-visible,.field select:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid #5ea99e;outline-offset:2px}
+main{flex:1;max-width:1500px;width:100%;margin:auto;padding:28px clamp(24px,4vw,60px) 60px}
+.page-intro{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:22px}
+.page-intro p{margin:0;line-height:1.6;color:#60777b;max-width:830px}
+.context{font-size:12px;background:#e8f1ef;padding:8px 11px;border-radius:6px;color:#345b57;white-space:nowrap}
+.grid{display:grid;gap:16px}
+.cards{grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:22px}
+.card,.panel{background:#fff;border:1px solid #dde7e5;border-radius:12px;box-shadow:0 1px 3px #1c3f3b08}
+.card{padding:19px}
+.card .label{display:block;color:#60777b;font-size:12px;margin-bottom:12px}
+.card strong{display:block;font-size:24px;letter-spacing:-.05em}
+.card small{display:block;color:#71888a;margin-top:8px}
+.panel{padding:20px;margin-bottom:18px;min-width:0}
+.panel h2{font-size:17px;letter-spacing:-.02em;margin:0 0 15px}
+.panel h3{font-size:14px;margin:16px 0 8px}
+.two-col{grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr)}
+.table-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:540px}
+th,td{text-align:left;border-bottom:1px solid #edf1f1;padding:10px 10px;font-size:13px;vertical-align:top}
+th{color:#637c7d;font-weight:700;background:#f7faf9;white-space:nowrap}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+tbody tr:last-child td{border-bottom:0}
+.bar-chart{display:grid;gap:11px}
+.bar-row{display:grid;grid-template-columns:80px minmax(0,1fr) 100px;align-items:center;gap:10px;font-size:12px;font-variant-numeric:tabular-nums}
+.bar-track{height:11px;background:#e8f0ed;border-radius:20px;overflow:hidden}
+.bar-fill{height:100%;background:#4a9f8b;border-radius:20px}
+.bar-row .value{text-align:right}
+.axis-label{font-size:11px;color:#71888a;margin-top:14px}
+.form-row{display:flex;flex-wrap:wrap;align-items:end;gap:12px;margin-bottom:14px}
+.field{display:grid;gap:5px}
+.field input{min-width:180px}
+.field select{min-width:140px}
+.primary,.secondary,.link-button{border-radius:8px;min-height:41px;padding:10px 15px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.primary{background:#176755;color:#fff;border:1px solid #176755;font-weight:700}
+.primary:hover{background:#105443}
+.secondary,.link-button{background:#fff;color:#176755;border:1px solid #a9c8be}
+.secondary:hover,.link-button:hover{background:#eaf6f2}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+.state{padding:24px;border:1px dashed #b8cfca;background:#fff;color:#597274;border-radius:10px;line-height:1.5}
+.state.error{border-color:#d7a8a8;color:#934b4b;background:#fff8f8}
+.state.empty{border-color:#cedad8}
+.meta{font-size:12px;color:#60777b;line-height:1.5;margin:8px 0}
+.pill{display:inline-block;padding:4px 7px;border-radius:5px;background:#e5f2ed;color:#246955;font-size:11px;font-weight:700}
+.pill.muted{background:#eff1f2;color:#617276}
+.pill.warn{background:#fff0dc;color:#93651a}
+.evidence{max-width:360px;line-height:1.5;color:#60777b}
+.comparison{font-size:12px;color:#526a6d}
+.inline-note{background:#f0f7f5;border-left:3px solid #5aa995;padding:12px 14px;margin:12px 0;color:#486963;line-height:1.5}
+.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.9em;word-break:break-all}
+footer{padding:20px clamp(24px,4vw,60px);border-top:1px solid #dce5e4;color:#748a8d;font-size:11px}
+@media(max-width:1100px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+.two-col{grid-template-columns:1fr}
+}
+@media(max-width:760px){.shell{display:block}
+.sidebar{padding:14px;gap:12px}
+.brand{padding:0}
+.sidebar-note{display:none}
+.provisional{width:max-content;max-width:100%}
+nav{display:flex;overflow-x:auto;gap:4px;padding-bottom:3px}
+nav button{white-space:nowrap;padding:9px 11px;font-size:12px}
+.topbar{padding:19px 18px;min-height:0;display:grid}
+.topbar h1{font-size:25px}
+.snapshot-control select{width:100%}
+main{padding:20px 16px 45px}
+.page-intro{display:block}
+.context{display:inline-block;margin-top:10px}
+.cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.card{padding:14px}
+.card strong{font-size:20px}
+.panel{padding:15px}
+.bar-row{grid-template-columns:58px minmax(0,1fr) 76px}
+.field,.field input,.field select{width:100%}
+.form-row .primary{width:100%}
+footer{padding:16px}
+}
