@@ -10,7 +10,7 @@ Week 1, Session 1 is in progress. This repository currently contains the problem
 
 The planned source is [UCI Online Retail II](https://archive.ics.uci.edu/dataset/502/online+retail+ii), listed as CC BY 4.0 in the project plan. Download and verify its current source details before using it. Source spreadsheets and generated datasets stay outside Git.
 
-An Excel row represents an invoice line. Multiple lines may share an invoice, and a customer may have many invoices. A customer-product interaction aggregates qualifying purchase lines before a cutoff. See [the problem statement](docs/problem_statement.md) for the exact prediction and evaluation boundaries.
+An Excel row represents an invoice line. Multiple lines may share an invoice, and a customer may have many invoices. A customer-product interaction aggregates qualifying purchase lines before a cutoff. See [the problem statement](docs/problem_statement.md) for the exact prediction and evaluation boundaries, including a hand-counted cutoff example. Run [the example script](examples/granularity_example.py) to verify its counts.
 
 ## Local setup (PowerShell)
 
