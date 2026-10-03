@@ -5,6 +5,7 @@ import argparse
 from retailmind.config import load_config
 from retailmind.data.ingest import inspect_workbook, prepare_workbook
 from retailmind.data.snapshots import build_snapshot
+from retailmind.evaluation.error_analysis import analyze_errors
 from retailmind.training import train_test, train_validation
 
 
@@ -21,6 +22,8 @@ def main() -> None:
         "train", help="Search validation or fit frozen models at test cutoff"
     )
     train_parser.add_argument("--snapshot", choices=("validation", "test"), required=True)
+    errors_parser = subparsers.add_parser("analyze-errors", help="Analyze frozen test errors")
+    errors_parser.add_argument("--snapshot", choices=("test",), default="test")
     args = parser.parse_args()
     config = load_config()
     if args.command == "inspect":
@@ -34,6 +37,8 @@ def main() -> None:
             train_validation(config)
         else:
             train_test(config)
+    elif args.command == "analyze-errors":
+        analyze_errors(config, args.snapshot)
 
 
 if __name__ == "__main__":

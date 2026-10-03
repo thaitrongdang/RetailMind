@@ -1,0 +1,16 @@
+.git
+.venv
+.uv-cache
+__pycache__
+.pytest_cache
+.ruff_cache
+.pytest_tmp*
+data
+artifacts
+logs
+tests
+*.xlsx
+*.xls
+*.parquet
+.env
+.env.*

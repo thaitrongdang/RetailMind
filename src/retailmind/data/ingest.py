@@ -5,7 +5,6 @@ from __future__ import annotations
 import hashlib
 import json
 import os
-from collections import Counter
 from datetime import date, datetime
 from importlib.metadata import version
 from pathlib import Path

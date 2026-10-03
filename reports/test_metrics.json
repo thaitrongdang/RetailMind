@@ -1,0 +1,327 @@
+{
+  "evaluated_at_local_time": "2026-10-03T20:48:21",
+  "min_invoices": 1,
+  "model_metrics": {
+    "als": {
+      "by_history_cohort": {
+        "one_invoice": {
+          "catalog_coverage": 0.14820457018498367,
+          "eligible_label_customers": 209,
+          "eligible_recall_at_10": 0.08765579229157351,
+          "evaluated_customers": 209,
+          "hit_rate_at_10": 0.6028708133971292,
+          "label_availability_macro": 0.9977871424488045,
+          "ndcg_at_10": 0.16214378804916812,
+          "recall_at_10": 0.08753157868269282
+        },
+        "over_five_invoices": {
+          "catalog_coverage": 0.235038084874864,
+          "eligible_label_customers": 795,
+          "eligible_recall_at_10": 0.07446500316506295,
+          "evaluated_customers": 796,
+          "hit_rate_at_10": 0.5904522613065326,
+          "label_availability_macro": 0.9887460113909236,
+          "ndcg_at_10": 0.1420273628776198,
+          "recall_at_10": 0.0739505262326849
+        },
+        "two_to_five_invoices": {
+          "catalog_coverage": 0.1854189336235038,
+          "eligible_label_customers": 464,
+          "eligible_recall_at_10": 0.09063818275153508,
+          "evaluated_customers": 464,
+          "hit_rate_at_10": 0.6142241379310345,
+          "label_availability_macro": 0.9939817386773333,
+          "ndcg_at_10": 0.1643074294140079,
+          "recall_at_10": 0.09041489588925133
+        }
+      },
+      "by_rfm_segment": {
+        "frequent": {
+          "customers": 158,
+          "ndcg_at_10": 0.1371325912475873,
+          "recall_at_10": 0.0706540115875523
+        },
+        "less_recent_less_frequent": {
+          "customers": 170,
+          "ndcg_at_10": 0.13255520746190433,
+          "recall_at_10": 0.06702403736986551
+        },
+        "recent": {
+          "customers": 225,
+          "ndcg_at_10": 0.17781983504604765,
+          "recall_at_10": 0.09237550922266397
+        },
+        "recent_frequent": {
+          "customers": 916,
+          "ndcg_at_10": 0.15171362688860035,
+          "recall_at_10": 0.08271759908264499
+        }
+      },
+      "candidate_products": 4595,
+      "catalog_coverage": 0.2744287268770403,
+      "eligible_label_customers": 1468,
+      "eligible_recall_at_10": 0.08145494203125081,
+      "empty_label_historical_customers": 4164,
+      "evaluated_customers": 1469,
+      "fallback_customer_rate": 0.0,
+      "future_customers": 1660,
+      "future_distinct_label_pairs": 49463,
+      "historical_customers": 5633,
+      "hit_rate_at_10": 0.5997277059223962,
+      "k": 10,
+      "known_future_label_pairs": 49075,
+      "label_availability_macro": 0.9916860888939809,
+      "label_availability_micro": 0.99215575278491,
+      "model": "als",
+      "ndcg_at_10": 0.15192680721644736,
+      "new_future_customers": 191,
+      "offline_inference_p50_ms": 1.4024999691173434,
+      "offline_inference_p95_ms": 2.704479964450001,
+      "recall_at_10": 0.08108320661573357,
+      "snapshot_id": "test-20111101-bcbe73b35f5b-1cfa8347816f"
+    },
+    "itemcf": {
+      "by_history_cohort": {
+        "one_invoice": {
+          "catalog_coverage": 0.12970620239390643,
+          "eligible_label_customers": 209,
+          "eligible_recall_at_10": 0.06266071721394766,
+          "evaluated_customers": 209,
+          "hit_rate_at_10": 0.49760765550239233,
+          "label_availability_macro": 0.9977871424488045,
+          "ndcg_at_10": 0.138862777303324,
+          "recall_at_10": 0.06263514379292963
+        },
+        "over_five_invoices": {
+          "catalog_coverage": 0.10859630032644178,
+          "eligible_label_customers": 795,
+          "eligible_recall_at_10": 0.08006153466087254,
+          "evaluated_customers": 796,
+          "hit_rate_at_10": 0.6407035175879398,
+          "label_availability_macro": 0.9887460113909236,
+          "ndcg_at_10": 0.19288728530814211,
+          "recall_at_10": 0.07953326299476829
+        },
+        "two_to_five_invoices": {
+          "catalog_coverage": 0.13710554951033732,
+          "eligible_label_customers": 464,
+          "eligible_recall_at_10": 0.06584828937124355,
+          "evaluated_customers": 464,
+          "hit_rate_at_10": 0.49353448275862066,
+          "label_availability_macro": 0.9939817386773333,
+          "ndcg_at_10": 0.13339322961235053,
+          "recall_at_10": 0.06554084120320487
+        }
+      },
+      "by_rfm_segment": {
+        "frequent": {
+          "customers": 158,
+          "ndcg_at_10": 0.13181840424066021,
+          "recall_at_10": 0.05849655443486709
+        },
+        "less_recent_less_frequent": {
+          "customers": 170,
+          "ndcg_at_10": 0.11067573353378263,
+          "recall_at_10": 0.04056919918981136
+        },
+        "recent": {
+          "customers": 225,
+          "ndcg_at_10": 0.13942305200257485,
+          "recall_at_10": 0.06452033001875379
+        },
+        "recent_frequent": {
+          "customers": 916,
+          "ndcg_at_10": 0.18934791357037095,
+          "recall_at_10": 0.08313742248651569
+        }
+      },
+      "candidate_products": 4595,
+      "catalog_coverage": 0.20130576713819368,
+      "eligible_label_customers": 1468,
+      "eligible_recall_at_10": 0.07309170042327366,
+      "empty_label_historical_customers": 4164,
+      "evaluated_customers": 1469,
+      "fallback_customer_rate": 0.0,
+      "future_customers": 1660,
+      "future_distinct_label_pairs": 49463,
+      "historical_customers": 5633,
+      "hit_rate_at_10": 0.5738597685500341,
+      "k": 10,
+      "known_future_label_pairs": 49075,
+      "label_availability_macro": 0.9916860888939809,
+      "label_availability_micro": 0.99215575278491,
+      "model": "itemcf",
+      "ndcg_at_10": 0.16640916140354423,
+      "new_future_customers": 191,
+      "offline_inference_p50_ms": 6.634499994106591,
+      "offline_inference_p95_ms": 8.306119940243658,
+      "recall_at_10": 0.0727094436452314,
+      "snapshot_id": "test-20111101-bcbe73b35f5b-1cfa8347816f"
+    },
+    "popularity": {
+      "by_history_cohort": {
+        "one_invoice": {
+          "catalog_coverage": 0.002176278563656148,
+          "eligible_label_customers": 209,
+          "eligible_recall_at_10": 0.03811351104784415,
+          "evaluated_customers": 209,
+          "hit_rate_at_10": 0.5167464114832536,
+          "label_availability_macro": 0.9977871424488045,
+          "ndcg_at_10": 0.08591625408377934,
+          "recall_at_10": 0.03804925101168884
+        },
+        "over_five_invoices": {
+          "catalog_coverage": 0.002176278563656148,
+          "eligible_label_customers": 795,
+          "eligible_recall_at_10": 0.04504667031643313,
+          "evaluated_customers": 796,
+          "hit_rate_at_10": 0.6080402010050251,
+          "label_availability_macro": 0.9887460113909236,
+          "ndcg_at_10": 0.1377277087443868,
+          "recall_at_10": 0.04460475767092734
+        },
+        "two_to_five_invoices": {
+          "catalog_coverage": 0.002176278563656148,
+          "eligible_label_customers": 464,
+          "eligible_recall_at_10": 0.0414559658767603,
+          "evaluated_customers": 464,
+          "hit_rate_at_10": 0.5021551724137931,
+          "label_availability_macro": 0.9939817386773333,
+          "ndcg_at_10": 0.0867113104345366,
+          "recall_at_10": 0.04129720144153863
+        }
+      },
+      "by_rfm_segment": {
+        "frequent": {
+          "customers": 158,
+          "ndcg_at_10": 0.0979077222708613,
+          "recall_at_10": 0.04004090832057198
+        },
+        "less_recent_less_frequent": {
+          "customers": 170,
+          "ndcg_at_10": 0.08800064229295144,
+          "recall_at_10": 0.03822434392037686
+        },
+        "recent": {
+          "customers": 225,
+          "ndcg_at_10": 0.07669396475823578,
+          "recall_at_10": 0.03439493493177909
+        },
+        "recent_frequent": {
+          "customers": 916,
+          "ndcg_at_10": 0.13115298026906755,
+          "recall_at_10": 0.045912794427522184
+        }
+      },
+      "candidate_products": 4595,
+      "catalog_coverage": 0.002176278563656148,
+      "eligible_label_customers": 1468,
+      "eligible_recall_at_10": 0.042924655911022166,
+      "empty_label_historical_customers": 4164,
+      "evaluated_customers": 1469,
+      "fallback_customer_rate": 0.0,
+      "future_customers": 1660,
+      "future_distinct_label_pairs": 49463,
+      "historical_customers": 5633,
+      "hit_rate_at_10": 0.5616065350578625,
+      "k": 10,
+      "known_future_label_pairs": 49075,
+      "label_availability_macro": 0.9916860888939809,
+      "label_availability_micro": 0.99215575278491,
+      "model": "popularity",
+      "ndcg_at_10": 0.1142422064708419,
+      "new_future_customers": 191,
+      "offline_inference_p50_ms": 1.4794999733567238,
+      "offline_inference_p95_ms": 1.6747200628742573,
+      "recall_at_10": 0.04262735332632747,
+      "snapshot_id": "test-20111101-bcbe73b35f5b-1cfa8347816f"
+    }
+  },
+  "note": "Configuration was frozen in validation_selection.json before test evaluation.",
+  "selected_model": "itemcf",
+  "selected_params": {
+    "neighbors": 20,
+    "weighting": "log"
+  },
+  "selected_routed_metrics": {
+    "by_history_cohort": {
+      "one_invoice": {
+        "catalog_coverage": 0.12970620239390643,
+        "eligible_label_customers": 209,
+        "eligible_recall_at_10": 0.06266071721394766,
+        "evaluated_customers": 209,
+        "hit_rate_at_10": 0.49760765550239233,
+        "label_availability_macro": 0.9977871424488045,
+        "ndcg_at_10": 0.138862777303324,
+        "recall_at_10": 0.06263514379292963
+      },
+      "over_five_invoices": {
+        "catalog_coverage": 0.10859630032644178,
+        "eligible_label_customers": 795,
+        "eligible_recall_at_10": 0.08006153466087254,
+        "evaluated_customers": 796,
+        "hit_rate_at_10": 0.6407035175879398,
+        "label_availability_macro": 0.9887460113909236,
+        "ndcg_at_10": 0.19288728530814211,
+        "recall_at_10": 0.07953326299476829
+      },
+      "two_to_five_invoices": {
+        "catalog_coverage": 0.13710554951033732,
+        "eligible_label_customers": 464,
+        "eligible_recall_at_10": 0.06584828937124355,
+        "evaluated_customers": 464,
+        "hit_rate_at_10": 0.49353448275862066,
+        "label_availability_macro": 0.9939817386773333,
+        "ndcg_at_10": 0.13339322961235053,
+        "recall_at_10": 0.06554084120320487
+      }
+    },
+    "by_rfm_segment": {
+      "frequent": {
+        "customers": 158,
+        "ndcg_at_10": 0.13181840424066021,
+        "recall_at_10": 0.05849655443486709
+      },
+      "less_recent_less_frequent": {
+        "customers": 170,
+        "ndcg_at_10": 0.11067573353378263,
+        "recall_at_10": 0.04056919918981136
+      },
+      "recent": {
+        "customers": 225,
+        "ndcg_at_10": 0.13942305200257485,
+        "recall_at_10": 0.06452033001875379
+      },
+      "recent_frequent": {
+        "customers": 916,
+        "ndcg_at_10": 0.18934791357037095,
+        "recall_at_10": 0.08313742248651569
+      }
+    },
+    "candidate_products": 4595,
+    "catalog_coverage": 0.20130576713819368,
+    "eligible_label_customers": 1468,
+    "eligible_recall_at_10": 0.07309170042327366,
+    "empty_label_historical_customers": 4164,
+    "evaluated_customers": 1469,
+    "fallback_customer_rate": 0.0,
+    "future_customers": 1660,
+    "future_distinct_label_pairs": 49463,
+    "historical_customers": 5633,
+    "hit_rate_at_10": 0.5738597685500341,
+    "k": 10,
+    "known_future_label_pairs": 49075,
+    "label_availability_macro": 0.9916860888939809,
+    "label_availability_micro": 0.99215575278491,
+    "model": "itemcf",
+    "ndcg_at_10": 0.16640916140354423,
+    "new_future_customers": 191,
+    "offline_inference_p50_ms": 6.632099975831807,
+    "offline_inference_p95_ms": 8.141900016926229,
+    "recall_at_10": 0.0727094436452314,
+    "snapshot_id": "test-20111101-bcbe73b35f5b-1cfa8347816f"
+  },
+  "source_hash": "bcbe73b35f5b7babf197fb0cb983a11f5d9ff929078d4aa53d171b1f2df2e980",
+  "test_snapshot_id": "test-20111101-bcbe73b35f5b-1cfa8347816f",
+  "validation_snapshot_id": "validation-20110901-bcbe73b35f5b-b995de65bce5"
+}

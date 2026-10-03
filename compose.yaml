@@ -1,0 +1,12 @@
+services:
+  api:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - ./data/processed:/app/data/processed:ro
+      - ./artifacts:/app/artifacts:ro
+      - ./logs:/app/logs
+    environment:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "4"

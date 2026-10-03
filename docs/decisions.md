@@ -20,3 +20,23 @@
 - **Alternatives considered:** ItemCF 20/50 neighbors with binary/log weighting; ALS 32/64 factors and regularization 0.05/0.2, with 10 iterations, one confidence scale and seed 42; Popularity 90-day baseline.
 - **Evidence:** `reports/validation_selection.json` contains every search result, cohort definition, frozen evaluation contract and selected parameters. The saved ItemCF bundle reproduced validation NDCG@10 exactly after reload.
 - **Limit:** Offline validation does not demonstrate revenue lift. The configuration is frozen before test and must not be changed based on test performance.
+
+## 2026-10-03 — Frozen test interpretation
+
+- **Decision:** Keep ItemCF as the selected serving model after test. Report ALS separately.
+- **Reason:** Selection was fixed by validation NDCG@10 before opening test. Test ItemCF had NDCG@10 0.166409; ALS had 0.151927. ALS had higher Recall@10 (0.081083 versus 0.072709), but changing the selection criterion after test would contaminate the holdout.
+- **Evidence:** `reports/validation_selection.json`, `reports/test_metrics.json`, `reports/model_card.md` and `reports/test_error_analysis.json`.
+- **Limit:** This is retrospective purchase overlap, not online benefit.
+
+## 2026-10-03 — Read-only API boundary
+
+- **Decision:** Load snapshot-specific model bundles once in FastAPI lifespan; keep future labels behind a separate replay route. Give every response a request ID and expose ranking scores with explicit semantics.
+- **Reason:** Rebuilding a model per request would change latency and risk mixing cutoffs. The UI needs a stable contract for real and failure states. Explicit new-customer mode prevents a mistyped historical ID silently becoming Popularity.
+- **Evidence:** `src/retailmind/service.py`, `src/retailmind/api.py` and `tests/test_api.py`. Real-bundle smoke checks covered both snapshots, success paths, CSV and 404/422/503 cases. A 200-request loopback benchmark is recorded in `reports/api_benchmark.json`.
+- **Limit:** The benchmark is sequential and local. Public security, traffic and deployment behavior remain unmeasured.
+
+## 2026-10-03 — Frontend and container verification
+
+- **Decision:** Keep the final frontend framework and layout open until the owner supplies the visual design. Expose overview, customer, product, quality, evaluation and replay data through Python API routes so the frontend can be implemented without duplicating business logic. Prepare Docker files now and mark the build unverified.
+- **Reason:** The design may need more customization than Streamlit; the original plan's default should be reconsidered from the actual handoff. Docker is not installed on this host.
+- **Evidence:** Frontend handoff requested asynchronously; `Dockerfile` and `compose.yaml` written, `docker --version` reported command not found.
