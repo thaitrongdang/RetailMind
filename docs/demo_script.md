@@ -1,6 +1,6 @@
 # Local demo script
 
-This script follows the six-page dashboard adapted from `DESIGN.md` and `RetailMind_Frontend_Brief.md`. The screenshots in `docs/screenshots/` show the actual local API and UCI workbook. All figures below come from the verified workbook hash in `reports/data_manifest.json`.
+This script follows the six-page dashboard adapted from `DESIGN.md` and `RetailMind_Frontend_Brief.md`. The screenshots in `docs/screenshots/` and the silent captioned recording in `docs/demo/` show the actual local API and UCI workbook. All figures below come from the verified workbook hash in `reports/data_manifest.json`.
 
 1. **Start locally.** Complete the README pipeline, then run `uvicorn retailmind.api:app --host 127.0.0.1 --port 8000` from the project environment. Check `/health` for `ready`, open `/ui/`, and keep `/docs` available for API inspection.
 2. **Overview.** Select **Test · 01 Nov 2011**. Explain that the positive sales KPI uses only rows before this cutoff, includes anonymous purchases for analytics, and excludes returns. Point to the monthly table and GBP units. Switch to Validation and check that the snapshot ID and figures change together, then return to Test.
