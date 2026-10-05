@@ -14,6 +14,7 @@ This checklist combines prior merged-main evidence through `d3fa6d6` with local 
 | Browser visual interaction and screenshots | `done` locally | Headless Chrome exercised page navigation, outcome reveal and snapshot switching with no console/page errors. Thirteen real-data screenshots are in `docs/screenshots/`. Cross-browser audit remains outside this check. |
 | Fresh Python environment, fixture tests and lint | `done` locally | Recovery sync of 37 locked packages under CPython 3.12.14; 11 tests and Ruff passed on 2026-10-05. Old `.venv` paths are broken after reinstall. |
 | GitHub CI on merged main | `done` | [CI run 37133659899](https://github.com/thaitrongdang/RetailMind/actions/runs/37133659899) succeeded on `96cfb1e`. |
+| Designed-dashboard PR CI | `done` on PR head | [PR #14](https://github.com/thaitrongdang/RetailMind/pull/14) head `b6f4de4`; [run 37344804127](https://github.com/thaitrongdang/RetailMind/actions/runs/37344804127) passed `fixture-tests` and `container-build`. Merge and main CI still to verify. |
 | Local API benchmark | `done` | `reports/api_benchmark.json`; p95 109.029 ms over 200 sequential loopback requests, 20 warmups, one worker. |
 | Docker image build and API import | `done` | [CI run 37134339279](https://github.com/thaitrongdang/RetailMind/actions/runs/37134339279) passed `container-build` on PR #13. |
 | Compose launch with real mounted bundles | `blocked` | Docker, Podman and nerdctl unavailable on this host; test `compose.yaml` on a Docker host with locally built snapshot/model artifacts. |
