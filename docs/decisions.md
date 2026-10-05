@@ -46,3 +46,17 @@
 - **Reason:** This allows the snapshot, model, new-customer, replay, product, evaluation and quality flows to be exercised now without committing to Streamlit or a separate frontend framework before seeing the design.
 - **Evidence:** `ui/` and `scripts/smoke_ui_logic.cjs`. The smoke script exercised all six controllers, validation/test switching, ALS selection, explicit new-customer mode and an unknown-customer error against the real local API; JavaScript syntax and Python checks passed.
 - **Limit:** The browser automation tool was blocked by an automatic usage-limit review and then a Windows sandbox helper failure, so the visual desktop/mobile interaction check and screenshots remain pending. This interface is explicitly provisional and is not the approved design.
+
+## 2026-10-05 — Designed dashboard adaptation
+
+- **Decision:** Keep the existing FastAPI-served HTML/CSS/JavaScript frontend and adapt it to the visual tokens and page behavior in `DESIGN.md` and `RetailMind_Frontend_Brief.md`. The brief resolves conflicts with the Factory marketing reference. A desktop sidebar, mobile navigation drawer, dark data panels and selective light summary panels serve the six analytical pages.
+- **Reason:** The written handoff asks for substantial styling control but does not require React, Tailwind or Streamlit. The existing frontend already consumes the stable API. Keeping that small stack avoids a second server and keeps recommendation logic entirely in Python.
+- **Alternatives considered:** Streamlit, the original default, would require framework-specific layout work for this sidebar and detailed responsive shell. A separate JavaScript framework would add a build and dependency layer without a product requirement that needs it.
+- **Evidence:** The six pages were exercised with real API data in Chrome at 1440×900 and 390×844. Screenshots are in `docs/screenshots/`. The browser check covered snapshot switching, replay reveal, page navigation and horizontal overflow. `scripts/smoke_ui_logic.cjs` checks the controller flow independently.
+- **Limit:** `DESIGN.md` is a written style reference, not a pixel-level screen design. The app uses the declared system font fallback where Geist is unavailable. Browser verification covers Chrome on one machine; a wider accessibility and cross-browser audit remains useful.
+
+## 2026-10-05 — Data quality audit details
+
+- **Decision:** Include raw-field missingness and up to three traceable sample rows per classification reason in the aggregate data-quality report. Generate both from the raw/classified Parquet pipeline and expose them through the existing read-only quality endpoint.
+- **Reason:** Counts alone could not show which source rows produced a reason or distinguish raw missing values from the exclusive primary classification reason. The sample uses `raw_row_id`, sheet and Excel row number for reproducible lookup.
+- **Evidence:** `src/retailmind/data/ingest.py`, `tests/test_ingest.py`, regenerated `reports/data_quality.json` and the Data Quality page.

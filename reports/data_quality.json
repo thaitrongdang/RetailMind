@@ -1,6 +1,16 @@
 {
   "max_valid_invoice_date": "2011-12-09 12:50:00",
   "min_valid_invoice_date": "2009-12-01 07:45:00",
+  "missing_raw_values": {
+    "country_raw": 0,
+    "customer_id_raw": 243007,
+    "description_raw": 4382,
+    "invoice_date_raw": 0,
+    "invoice_raw": 0,
+    "price_raw": 0,
+    "quantity_raw": 0,
+    "stock_code_raw": 0
+  },
   "reason_counts": {
     "cancellation": 19494,
     "non_merchandise": 4559,
@@ -8,6 +18,182 @@
     "nonpositive_quantity": 3457,
     "sale_anonymous": 234460,
     "sale_identified": 802651
+  },
+  "reason_samples": {
+    "cancellation": [
+      {
+        "customer_id_raw": "12755",
+        "invoice_raw": "C498782",
+        "raw_row_id": "bcbe73b35f5b7bab:0:100020",
+        "reason_code": "cancellation",
+        "source_row": 100020,
+        "source_sheet": "Year 2009-2010",
+        "stock_code_raw": "22328"
+      },
+      {
+        "customer_id_raw": "12755",
+        "invoice_raw": "C498784",
+        "raw_row_id": "bcbe73b35f5b7bab:0:100021",
+        "reason_code": "cancellation",
+        "source_row": 100021,
+        "source_sheet": "Year 2009-2010",
+        "stock_code_raw": "20864"
+      },
+      {
+        "customer_id_raw": "12755",
+        "invoice_raw": "C498784",
+        "raw_row_id": "bcbe73b35f5b7bab:0:100022",
+        "reason_code": "cancellation",
+        "source_row": 100022,
+        "source_sheet": "Year 2009-2010",
+        "stock_code_raw": "20855"
+      }
+    ],
+    "non_merchandise": [
+      {
+        "customer_id_raw": "15493",
+        "invoice_raw": "498797",
+        "raw_row_id": "bcbe73b35f5b7bab:0:100113",
+        "reason_code": "non_merchandise",
+        "source_row": 100113,
+        "source_sheet": "Year 2009-2010",
+        "stock_code_raw": "M"
+      },
+      {
+        "customer_id_raw": "12682",
+        "invoice_raw": "498890",
+        "raw_row_id": "bcbe73b35f5b7bab:0:100455",
+        "reason_code": "non_merchandise",
+        "source_row": 100455,
+        "source_sheet": "Year 2009-2010",
+        "stock_code_raw": "POST"
+      },
+      {
+        "customer_id_raw": "12472",
+        "invoice_raw": "498907",
+        "raw_row_id": "bcbe73b35f5b7bab:0:100780",
+        "reason_code": "non_merchandise",
+        "source_row": 100780,
+        "source_sheet": "Year 2009-2010",
+        "stock_code_raw": "POST"
+      }
+    ],
+    "nonpositive_price": [
+      {
+        "customer_id_raw": null,
+        "invoice_raw": "498865",
+        "raw_row_id": "bcbe73b35f5b7bab:0:100256",
+        "reason_code": "nonpositive_price",
+        "source_row": 100256,
+        "source_sheet": "Year 2009-2010",
+        "stock_code_raw": "16207B"
+      },
+      {
+        "customer_id_raw": null,
+        "invoice_raw": "498875",
+        "raw_row_id": "bcbe73b35f5b7bab:0:100264",
+        "reason_code": "nonpositive_price",
+        "source_row": 100264,
+        "source_sheet": "Year 2009-2010",
+        "stock_code_raw": "15056P"
+      },
+      {
+        "customer_id_raw": null,
+        "invoice_raw": "498881",
+        "raw_row_id": "bcbe73b35f5b7bab:0:100350",
+        "reason_code": "nonpositive_price",
+        "source_row": 100350,
+        "source_sheet": "Year 2009-2010",
+        "stock_code_raw": "15056BL"
+      }
+    ],
+    "nonpositive_quantity": [
+      {
+        "customer_id_raw": null,
+        "invoice_raw": "498855",
+        "raw_row_id": "bcbe73b35f5b7bab:0:100245",
+        "reason_code": "nonpositive_quantity",
+        "source_row": 100245,
+        "source_sheet": "Year 2009-2010",
+        "stock_code_raw": "20988"
+      },
+      {
+        "customer_id_raw": null,
+        "invoice_raw": "498856",
+        "raw_row_id": "bcbe73b35f5b7bab:0:100246",
+        "reason_code": "nonpositive_quantity",
+        "source_row": 100246,
+        "source_sheet": "Year 2009-2010",
+        "stock_code_raw": "84396"
+      },
+      {
+        "customer_id_raw": null,
+        "invoice_raw": "498857",
+        "raw_row_id": "bcbe73b35f5b7bab:0:100247",
+        "reason_code": "nonpositive_quantity",
+        "source_row": 100247,
+        "source_sheet": "Year 2009-2010",
+        "stock_code_raw": "17091F"
+      }
+    ],
+    "sale_anonymous": [
+      {
+        "customer_id_raw": null,
+        "invoice_raw": "490149",
+        "raw_row_id": "bcbe73b35f5b7bab:0:10000",
+        "reason_code": "sale_anonymous",
+        "source_row": 10000,
+        "source_sheet": "Year 2009-2010",
+        "stock_code_raw": "21212"
+      },
+      {
+        "customer_id_raw": null,
+        "invoice_raw": "498780",
+        "raw_row_id": "bcbe73b35f5b7bab:0:100000",
+        "reason_code": "sale_anonymous",
+        "source_row": 100000,
+        "source_sheet": "Year 2009-2010",
+        "stock_code_raw": "84568"
+      },
+      {
+        "customer_id_raw": null,
+        "invoice_raw": "498780",
+        "raw_row_id": "bcbe73b35f5b7bab:0:100001",
+        "reason_code": "sale_anonymous",
+        "source_row": 100001,
+        "source_sheet": "Year 2009-2010",
+        "stock_code_raw": "84598"
+      }
+    ],
+    "sale_identified": [
+      {
+        "customer_id_raw": "13085",
+        "invoice_raw": "489435",
+        "raw_row_id": "bcbe73b35f5b7bab:0:10",
+        "reason_code": "sale_identified",
+        "source_row": 10,
+        "source_sheet": "Year 2009-2010",
+        "stock_code_raw": "22350"
+      },
+      {
+        "customer_id_raw": "13635",
+        "invoice_raw": "489442",
+        "raw_row_id": "bcbe73b35f5b7bab:0:100",
+        "reason_code": "sale_identified",
+        "source_row": 100,
+        "source_sheet": "Year 2009-2010",
+        "stock_code_raw": "22296"
+      },
+      {
+        "customer_id_raw": "17804",
+        "invoice_raw": "489545",
+        "raw_row_id": "bcbe73b35f5b7bab:0:1000",
+        "reason_code": "sale_identified",
+        "source_row": 1000,
+        "source_sheet": "Year 2009-2010",
+        "stock_code_raw": "35954"
+      }
+    ]
   },
   "reconciled": true,
   "suspicious_duplicate_extra_rows": 34335,
