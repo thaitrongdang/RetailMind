@@ -8,7 +8,7 @@ const vm = require("node:vm");
 
 async function main() {
   const elements = new Map();
-  for (const name of ["content", "page-title", "page-index", "navigation", "snapshot", "sidebar", "menu-toggle", "service-status", "customer-form", "new-customer-button", "model-select", "product-form", "product-query", "customer-id", "similar-result", "error-analysis", "reveal-outcomes", "replay-outcomes", "retry-button"]) {
+  for (const name of ["content", "page-title", "page-index", "navigation", "snapshot", "sidebar", "menu-toggle", "service-status", "customer-form", "new-customer-button", "model-select", "product-form", "product-query", "customer-id", "similar-result", "error-analysis", "reveal-outcomes", "replay-outcomes", "retry-button", "change-customer-button"]) {
     elements.set(name, {innerHTML: "", outerHTML: "", textContent: "", value: "", disabled: false, handlers: {}, addEventListener(type, handler) { this.handlers[type] = handler; }, setAttribute() {}, classList: {toggle() { return false; }, remove() {}}});
   }
   const document = {
@@ -61,6 +61,7 @@ async function main() {
   vm.runInContext('state.page = "customers"; state.customerId = "unknown-id"', context);
   await vm.runInContext("render()", context);
   assert.ok(elements.get("content").innerHTML.includes("customer_not_found"), "Missing unknown-customer error state");
+  assert.ok(elements.get("content").innerHTML.includes("Change customer ID"), "Unknown-customer error has no recovery action");
   console.log("validation snapshot and customer error: OK");
 }
 

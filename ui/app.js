@@ -25,7 +25,12 @@ async function getJson(path) {
   if (!response.ok) throw new Error((data.error || "API error") + " · HTTP " + response.status + " · request " + (data.request_id || "unavailable"));
   return data;
 }
-function showError(error) { content.innerHTML = '<div class="state error" role="alert"><span class="state-title">Unable to load this view</span><p>' + esc(error.message || error) + '</p><button class="retry-button" id="retry-button" type="button">Retry</button></div>'; document.getElementById('retry-button').addEventListener('click', render); }
+function showError(error) {
+  const canChangeCustomer = (state.page === "customers" || state.page === "replay") && state.customerId;
+  content.innerHTML = '<div class="state error" role="alert"><span class="state-title">Unable to load this view</span><p>' + esc(error.message || error) + '</p><div class="actions"><button class="retry-button" id="retry-button" type="button">Retry</button>' + (canChangeCustomer ? '<button class="secondary" id="change-customer-button" type="button">Change customer ID</button>' : '') + '</div></div>';
+  document.getElementById('retry-button').addEventListener('click', render);
+  if (canChangeCustomer) document.getElementById('change-customer-button').addEventListener('click', () => {state.customerId = ""; render();});
+}
 function loading() { content.innerHTML = '<div class="state" role="status">Loading snapshot data…</div>'; }
 function current(generation) { return generation === state.generation; }
 async function render() {
