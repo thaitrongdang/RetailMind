@@ -18,3 +18,4 @@ logs/
 *.xls
 .pytest_tmp*/
 .venv_clean/
+tmp/

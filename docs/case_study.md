@@ -1,6 +1,6 @@
 # RetailMind: time-aware product recommendations from retail transactions
 
-> Portfolio draft based on verified backend results. Replace the provisional UI section and add reviewed screenshots/video only after the owner-provided final design and browser checks are complete.
+> Portfolio draft based on measured offline results and a locally verified six-page dashboard. The final video, real-bundle Compose check and release status remain pending.
 
 ## Problem
 
@@ -38,12 +38,12 @@ The selected model had no top-ten overlap for 626 of 1,469 evaluated customers (
 
 ## Service and reproducibility
 
-The FastAPI service loads both snapshot bundles read-only at startup. It exposes customers, products, rankings, similarity, metrics, quality, aggregate overview and a separately routed historical outcome reader. Unknown historical IDs return 404; explicit new-customer mode uses Popularity. Responses carry request IDs, actual serving model, version, score semantics, repeat flags and historical evidence. CSV exports include snapshot and evaluation metadata. The six-page inspection UI is provisional until final design approval.
+The FastAPI service loads both snapshot bundles read-only at startup. It exposes customers, products, rankings, similarity, metrics, quality, aggregate overview and a separately routed historical outcome reader. Unknown historical IDs return 404; explicit new-customer mode uses Popularity. Responses carry request IDs, actual serving model, version, score semantics, repeat flags and historical evidence. CSV exports include snapshot and evaluation metadata. The six-page dashboard follows the supplied written design brief; Replay asks the viewer to reveal future outcomes after showing the cutoff-time ranking.
 
-A fresh locked CPython 3.11 environment passed 11 fixture tests and Ruff lint. GitHub Actions CI passed on the merged provisional UI commit on `main` as well as the backend PR. On the development Windows host, a sequential loopback HTTP benchmark of 200 top-ten requests after warmup measured p50 32.264 ms and p95 109.029 ms, with 2,385.166 ms from process launch to readiness. The method used 20 deterministic historical customers, one worker and evidence enabled; it is not a concurrent traffic or UI latency result.
+A fresh locked CPython 3.11 environment passed 11 fixture tests and Ruff lint. After a machine reinstall, a second locked environment under CPython 3.12.14 installed 37 packages and passed 11 tests plus Ruff. Chrome exercised all six pages at 1440×900 and 390×844 with real API data; the screenshots are in `docs/screenshots/`. GitHub Actions CI passed on the merged provisional UI commit and on designed-dashboard PR #14 head `b6f4de4` (fixture tests and container build); final-head CI is checked before merge. On the original development Windows host, a sequential loopback HTTP benchmark of 200 top-ten requests after warmup measured p50 32.264 ms and p95 109.029 ms, with 2,385.166 ms from process launch to readiness. The method used 20 deterministic historical customers, one worker and evidence enabled; it is not a concurrent traffic or UI latency result.
 
 ## Limits and next work
 
-The source is historical and represents one retailer with many wholesale-like purchases. It has no impression logs, live inventory, A/B assignment or online feedback. Offline overlap cannot establish click-through rate, conversion, revenue uplift or causal impact. Duplicate sensitivity and performance on a different store remain unmeasured. The final owner-supplied UI, visual browser checks, real-bundle Docker Compose launch, demo recording and release are pending, so this draft is not yet a completed public V1 case study.
+The source is historical and represents one retailer with many wholesale-like purchases. It has no impression logs, live inventory, A/B assignment or online feedback. Offline overlap cannot establish click-through rate, conversion, revenue uplift or causal impact. Duplicate sensitivity and performance on a different store remain unmeasured. The real-bundle Docker Compose launch, demo recording, PR merge and release are pending, so this draft is not yet a completed public V1 case study.
 
 Reproduction and detailed evidence: `README.md`, `reports/data_manifest.json`, `reports/data_quality.json`, `reports/validation_selection.json`, `reports/test_metrics.json`, `reports/model_card.md`, `reports/error_analysis.md` and `reports/api_benchmark.json`.

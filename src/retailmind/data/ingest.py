@@ -258,6 +258,41 @@ def _classify(config: ProjectConfig) -> dict[str, Any]:
             )
             """
         ).fetchone()[0]
+        raw_fields = (
+            "invoice_raw", "stock_code_raw", "description_raw", "quantity_raw",
+            "invoice_date_raw", "price_raw", "customer_id_raw", "country_raw",
+        )
+        missing_sql = ", ".join(
+            f"COUNT(*) FILTER (WHERE NULLIF(TRIM({field}), '') IS NULL) AS {field}"
+            for field in raw_fields
+        )
+        missing_values = dict(zip(
+            raw_fields,
+            connection.execute(f"SELECT {missing_sql} FROM raw").fetchone(),
+            strict=True,
+        ))
+        sample_columns = (
+            "reason_code", "raw_row_id", "source_sheet", "source_row",
+            "invoice_raw", "stock_code_raw", "customer_id_raw",
+        )
+        sample_rows = connection.execute(
+            """
+            SELECT reason_code, raw_row_id, source_sheet, source_row,
+                   invoice_raw, stock_code_raw, customer_id_raw
+            FROM (
+                SELECT *, ROW_NUMBER() OVER (
+                    PARTITION BY reason_code ORDER BY raw_row_id
+                ) AS sample_rank
+                FROM classified
+            )
+            WHERE sample_rank <= 3
+            ORDER BY reason_code, raw_row_id
+            """
+        ).fetchall()
+        reason_samples: dict[str, list[dict[str, Any]]] = {}
+        for row in sample_rows:
+            example = dict(zip(sample_columns, row, strict=True))
+            reason_samples.setdefault(example["reason_code"], []).append(example)
     finally:
         connection.close()
     os.replace(temp_path, classified_path)
@@ -265,6 +300,8 @@ def _classify(config: ProjectConfig) -> dict[str, Any]:
         "total_rows": total,
         "unique_raw_row_ids": unique_rows,
         "reason_counts": counts,
+        "missing_raw_values": missing_values,
+        "reason_samples": reason_samples,
         "suspicious_duplicate_extra_rows": duplicate_extras,
         "min_valid_invoice_date": min_date.isoformat(sep=" ") if min_date else None,
         "max_valid_invoice_date": max_date.isoformat(sep=" ") if max_date else None,

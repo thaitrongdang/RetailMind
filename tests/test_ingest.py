@@ -58,6 +58,10 @@ def test_ingest_reconciles_reasons_and_preserves_lineage(tmp_path: Path) -> None
         "sale_identified": 3,
     }
     assert quality["suspicious_duplicate_extra_rows"] == 1
+    assert quality["missing_raw_values"]["customer_id_raw"] == 1
+    assert quality["missing_raw_values"]["stock_code_raw"] == 1
+    assert quality["reason_samples"]["missing_stock_code"][0]["source_sheet"] == "Second year"
+    assert quality["reason_samples"]["missing_stock_code"][0]["source_row"] == 4
     raw = pq.read_table(config.processed_dir / "raw_transactions.parquet").to_pydict()
     assert len(set(raw["raw_row_id"])) == 8
     assert raw["source_row"][:4] == [2, 3, 4, 5]

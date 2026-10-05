@@ -3,32 +3,34 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RetailMind · Historical Recommendation Explorer</title>
+  <meta name="theme-color" content="#101010">
+  <link rel="icon" type="image/svg+xml" href="/ui/favicon.svg">
+  <title>RetailMind · Historical recommendation explorer</title>
   <link rel="stylesheet" href="/ui/style.css">
   <script src="/ui/app.js" defer></script>
 </head>
 <body>
   <div class="shell">
-    <aside class="sidebar" aria-label="Primary navigation">
-      <div class="brand"><span class="brand-mark">R</span><div><strong>RetailMind</strong><small>Historical recommendation explorer</small></div></div>
-      <div class="provisional">Provisional inspection interface</div>
+    <aside class="sidebar" id="sidebar" aria-label="Primary navigation">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">R<span class="brand-dot"></span></span><div><strong>RetailMind</strong><small>Decision intelligence / V1</small></div></div>
+      <div class="nav-caption">WORKSPACE / 01—06</div>
       <nav id="navigation" aria-label="Pages">
-        <button type="button" data-page="overview" class="active">Overview</button>
-        <button type="button" data-page="customers">Customers</button>
-        <button type="button" data-page="replay">Historical Replay</button>
-        <button type="button" data-page="products">Products</button>
-        <button type="button" data-page="evaluation">Model Evaluation</button>
-        <button type="button" data-page="quality">Data Quality</button>
+        <button type="button" data-page="overview" class="active"><span class="nav-number">01</span><span>Overview</span><span class="nav-arrow" aria-hidden="true">↗</span></button>
+        <button type="button" data-page="customers"><span class="nav-number">02</span><span>Customers</span><span class="nav-arrow" aria-hidden="true">↗</span></button>
+        <button type="button" data-page="replay"><span class="nav-number">03</span><span>Historical Replay</span><span class="nav-arrow" aria-hidden="true">↗</span></button>
+        <button type="button" data-page="products"><span class="nav-number">04</span><span>Products</span><span class="nav-arrow" aria-hidden="true">↗</span></button>
+        <button type="button" data-page="evaluation"><span class="nav-number">05</span><span>Model Evaluation</span><span class="nav-arrow" aria-hidden="true">↗</span></button>
+        <button type="button" data-page="quality"><span class="nav-number">06</span><span>Data Quality</span><span class="nav-arrow" aria-hidden="true">↗</span></button>
       </nav>
-      <div class="sidebar-note">Built from the real UCI source. Figures are retrospective and do not measure online impact.</div>
+      <div class="sidebar-bottom"><span class="micro-label">DATASET CONTEXT</span><p>UCI Online Retail II<br>Historical transactions · 2009–2011</p><span class="micro-label">OFFLINE ANALYSIS · NO LIVE SALES</span></div>
     </aside>
     <div class="workspace">
       <header class="topbar">
-        <div><span class="eyebrow">Retail analytics / historical replay</span><h1 id="page-title">Overview</h1></div>
-        <div class="snapshot-control"><label for="snapshot">Training cutoff</label><select id="snapshot" aria-label="Training cutoff"><option value="test">Test · 01 Nov 2011</option><option value="validation">Validation · 01 Sep 2011</option></select></div>
+        <div class="title-group"><button id="menu-toggle" class="menu-toggle" type="button" aria-controls="sidebar" aria-expanded="false" aria-label="Open navigation">☰</button><div><span class="eyebrow">RETAILMIND / <span id="page-index">01</span></span><h1 id="page-title">Overview</h1></div></div>
+        <div class="topbar-actions"><div id="service-status" class="service-status" role="status"><span class="status-dot"></span>Checking API</div><div class="snapshot-control"><label for="snapshot">TRAINING CUTOFF</label><select id="snapshot" aria-label="Training cutoff"><option value="test">Test · 01 Nov 2011</option><option value="validation">Validation · 01 Sep 2011</option></select></div></div>
       </header>
-      <main id="content" tabindex="-1" aria-live="polite"><div class="state">Loading…</div></main>
-      <footer>RetailMind V1 · Scores are ranking signals, not purchase probabilities. Source timestamps have no specified timezone.</footer>
+      <main id="content" tabindex="-1" aria-live="polite"><div class="state">Loading snapshot data…</div></main>
+      <footer><span>RETAILMIND V1 · HISTORICAL DATA</span><span>Scores rank products; they are not purchase probabilities. Source timestamps have no specified timezone.</span></footer>
     </div>
   </div>
 </body>
