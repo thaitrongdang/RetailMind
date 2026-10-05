@@ -1,6 +1,6 @@
 # V1 release readiness
 
-This checklist combines prior merged-main evidence through `d3fa6d6` with local designed-dashboard checks on 2026-10-05. The current branch changes are not yet merged or released. [Issue #10](https://github.com/thaitrongdang/RetailMind/issues/10) tracks remaining acceptance work.
+This checklist combines measured offline results, local designed-dashboard checks, and merged-main evidence through `bab9cdc`. [Issue #10](https://github.com/thaitrongdang/RetailMind/issues/10) tracks remaining acceptance work. No V1 release has been tagged.
 
 | Acceptance item | State | Evidence or next action |
 | --- | --- | --- |
@@ -13,11 +13,12 @@ This checklist combines prior merged-main evidence through `d3fa6d6` with local 
 | Supplied written visual design and responsive acceptance | `done` locally | `DESIGN.md` and `RetailMind_Frontend_Brief.md` adapted to the six-page app; Chrome checked 1440×900 and 390×844 with no page overflow. Written reference is not a pixel-exact Figma screen. |
 | Browser visual interaction and screenshots | `done` locally | Headless Chrome exercised page navigation, outcome reveal and snapshot switching with no console/page errors. Thirteen real-data screenshots are in `docs/screenshots/`. Cross-browser audit remains outside this check. |
 | Fresh Python environment, fixture tests and lint | `done` locally | Recovery sync of 37 locked packages under CPython 3.12.14; 11 tests and Ruff passed on 2026-10-05. Old `.venv` paths are broken after reinstall. |
-| GitHub CI on merged main | `done` | [CI run 37133659899](https://github.com/thaitrongdang/RetailMind/actions/runs/37133659899) succeeded on `96cfb1e`. |
-| Designed-dashboard PR CI | `in_progress` on final head | [PR #14](https://github.com/thaitrongdang/RetailMind/pull/14) previously passed `fixture-tests` and `container-build` on `b6f4de4` in [run 37344804127](https://github.com/thaitrongdang/RetailMind/actions/runs/37344804127); final-head checks, merge and main CI still to verify. |
+| GitHub CI on merged main | `done` | [CI run 37346331288](https://github.com/thaitrongdang/RetailMind/actions/runs/37346331288) succeeded on `bab9cdc`. |
+| Designed-dashboard PR CI | `done` | [PR #14](https://github.com/thaitrongdang/RetailMind/pull/14) passed `fixture-tests` and `container-build` on final head `a928748` in [run 37346100259](https://github.com/thaitrongdang/RetailMind/actions/runs/37346100259), then squash-merged as `bab9cdc`. |
 | Local API benchmark | `done` | `reports/api_benchmark.json`; p95 109.029 ms over 200 sequential loopback requests, 20 warmups, one worker. |
 | Docker image build and API import | `done` | [CI run 37134339279](https://github.com/thaitrongdang/RetailMind/actions/runs/37134339279) passed `container-build` on PR #13. |
 | Compose launch with real mounted bundles | `blocked` | Docker, Podman and nerdctl unavailable on this host; test `compose.yaml` on a Docker host with locally built snapshot/model artifacts. |
-| Final video and public V1 release | `planned` | Screenshots exist; video, designed-UI PR/CI, Compose with real bundles and final release check remain. No tag/release yet. |
+| Captioned demo video | `done` locally | `docs/demo/retailmind-walkthrough.webm` records the real local API and six-page UI; silent captions, VP8 1280×720. |
+| Public V1 release | `blocked` | Real-bundle Compose launch remains unverified on this host. No tag/release or public deployment. |
 
-**Current boundary:** Backend and designed UI are usable locally. The project must not be described as released V1 until the current branch has passed PR/CI and remaining applicable verification is recorded. Public hosting remains optional and needs an explicit destination/cost decision.
+**Current boundary:** Backend and designed UI are usable locally and merged with passing CI. A real-bundle Compose check is still needed before claiming a fully verified packaged V1. Public hosting remains optional and needs an explicit destination/cost decision.
