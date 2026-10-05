@@ -1,6 +1,6 @@
 # V1 release readiness
 
-This checklist combines measured offline results, local designed-dashboard checks, and merged-main evidence through `bab9cdc`. [Issue #10](https://github.com/thaitrongdang/RetailMind/issues/10) tracks remaining acceptance work. No V1 release has been tagged.
+This checklist combines measured offline results, local designed-dashboard checks, and merged-main evidence through `4d6751f`. [Issue #10](https://github.com/thaitrongdang/RetailMind/issues/10) tracks remaining acceptance work. No V1 release has been tagged.
 
 | Acceptance item | State | Evidence or next action |
 | --- | --- | --- |
@@ -13,7 +13,7 @@ This checklist combines measured offline results, local designed-dashboard check
 | Supplied written visual design and responsive acceptance | `done` locally | `DESIGN.md` and `RetailMind_Frontend_Brief.md` adapted to the six-page app; Chrome checked 1440×900 and 390×844 with no page overflow. Written reference is not a pixel-exact Figma screen. |
 | Browser visual interaction and screenshots | `done` locally | Headless Chrome exercised page navigation, outcome reveal and snapshot switching with no console/page errors. Thirteen real-data screenshots are in `docs/screenshots/`. Cross-browser audit remains outside this check. |
 | Fresh Python environment, fixture tests and lint | `done` locally | Recovery sync of 37 locked packages under CPython 3.12.14; 11 tests and Ruff passed on 2026-10-05. Old `.venv` paths are broken after reinstall. |
-| GitHub CI on merged main | `done` | [CI run 37346331288](https://github.com/thaitrongdang/RetailMind/actions/runs/37346331288) succeeded on `bab9cdc`. |
+| GitHub CI on merged main | `done` | [CI run 37348822558](https://github.com/thaitrongdang/RetailMind/actions/runs/37348822558) succeeded on `4d6751f`. |
 | Designed-dashboard PR CI | `done` | [PR #14](https://github.com/thaitrongdang/RetailMind/pull/14) passed `fixture-tests` and `container-build` on final head `a928748` in [run 37346100259](https://github.com/thaitrongdang/RetailMind/actions/runs/37346100259), then squash-merged as `bab9cdc`. |
 | Local API benchmark | `done` | `reports/api_benchmark.json`; p95 109.029 ms over 200 sequential loopback requests, 20 warmups, one worker. |
 | Docker image build and API import | `done` | [CI run 37134339279](https://github.com/thaitrongdang/RetailMind/actions/runs/37134339279) passed `container-build` on PR #13. |
