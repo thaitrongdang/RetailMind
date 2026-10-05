@@ -13,12 +13,14 @@ async function main() {
   }
   const document = {
     getElementById(name) { return elements.get(name) || null; },
-    querySelectorAll() { return []; }
+    querySelectorAll() { return []; },
+    addEventListener() {}
   };
   const base = process.env.RETAILMIND_API_URL || "http://127.0.0.1:8765";
   const requests = [];
   const context = vm.createContext({
     document,
+    window: {matchMedia() { return {matches: false}; }, addEventListener() {}},
     URLSearchParams,
     fetch: path => { requests.push(path); return globalThis.fetch(base + path); },
     console

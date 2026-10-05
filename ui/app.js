@@ -252,17 +252,31 @@ document.getElementById("navigation").addEventListener("click", event => {
   const button = event.target.closest("button[data-page]");
   if (!button) return;
   state.page = button.dataset.page;
-  document.getElementById('sidebar').classList.remove('open');
-  document.getElementById('menu-toggle').setAttribute('aria-expanded','false');
+  setNavigationOpen(false);
   render();
 });
 document.getElementById("snapshot").addEventListener("change", event => {state.snapshot = event.target.value; state.selectedProduct = ""; render();});
-document.getElementById("menu-toggle").addEventListener("click", () => {
+function setNavigationOpen(open) {
   const sidebar = document.getElementById("sidebar");
-  const isOpen = sidebar.classList.toggle("open");
-  document.getElementById("menu-toggle").setAttribute("aria-expanded", String(isOpen));
-  document.getElementById("menu-toggle").setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+  const isMobile = window.matchMedia("(max-width: 920px)").matches;
+  sidebar.classList.toggle("open", isMobile && open);
+  sidebar.inert = isMobile && !open;
+  sidebar.setAttribute("aria-hidden", String(isMobile && !open));
+  const toggle = document.getElementById("menu-toggle");
+  toggle.setAttribute("aria-expanded", String(isMobile && open));
+  toggle.setAttribute("aria-label", isMobile && open ? "Close navigation" : "Open navigation");
+}
+document.getElementById("menu-toggle").addEventListener("click", () => {
+  setNavigationOpen(!document.getElementById("sidebar").classList.contains("open"));
 });
+window.addEventListener("resize", () => setNavigationOpen(false));
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape" && document.getElementById("sidebar").classList.contains("open")) {
+    setNavigationOpen(false);
+    document.getElementById("menu-toggle").focus();
+  }
+});
+setNavigationOpen(false);
 async function bootstrap() {
   try {
     const [health, snapshots] = await Promise.all([getJson("/health"), getJson("/snapshots")]);

@@ -4,7 +4,7 @@ RetailMind ranks up to 10 products for an identified retail customer at a histor
 
 ## Current status
 
-The data pipeline, two cutoff snapshots, validation selection, frozen test evaluation, model card, error analysis and FastAPI are implemented. The six-page UI at `/ui/` now follows `DESIGN.md` and `RetailMind_Frontend_Brief.md`; its real API flows were checked in Chrome at desktop and mobile widths, including snapshot switching and outcome reveal. The Docker image build and API import passed on GitHub Actions; local Compose with real bundles remains unverified because Docker is unavailable on this host. [Designed-dashboard PR #14](https://github.com/thaitrongdang/RetailMind/pull/14) passed fixture and container CI on its `b6f4de4` head and awaits final review. Public hosting and business impact are not claimed.
+The data pipeline, two cutoff snapshots, validation selection, frozen test evaluation, model card, error analysis and FastAPI are implemented. The six-page UI at `/ui/` now follows `DESIGN.md` and `RetailMind_Frontend_Brief.md`; its real API flows were checked in Chrome at desktop and mobile widths, including snapshot switching and outcome reveal. The Docker image build and API import passed on GitHub Actions; local Compose with real bundles remains unverified because Docker is unavailable on this host. [Designed-dashboard PR #14](https://github.com/thaitrongdang/RetailMind/pull/14) is undergoing final review and CI. Public hosting and business impact are not claimed.
 
 ## Dataset and protocol
 
