@@ -1,0 +1,248 @@
+{
+  "checked_at_utc": "2026-10-07T15:33:55.974624+00:00",
+  "scope": "existing_real_bundle_and_delivery_audit_no_retraining",
+  "source_sha256": "bcbe73b35f5b7babf197fb0cb983a11f5d9ff929078d4aa53d171b1f2df2e980",
+  "reconciled_rows": 1067371,
+  "snapshots": {
+    "test": {
+      "snapshot_id": "test-20111101-bcbe73b35f5b-1cfa8347816f",
+      "counts": {
+        "candidate_products": 4595,
+        "customers": 5633,
+        "future_customers": 1660,
+        "future_identified_lines": 64301,
+        "history_analytics_lines": 928987,
+        "history_identified_lines": 721108,
+        "interactions": 439624
+      },
+      "history_max": "2011-10-31 17:13:00",
+      "distinct_future_pairs": 55069
+    },
+    "validation": {
+      "snapshot_id": "validation-20110901-bcbe73b35f5b-b995de65bce5",
+      "counts": {
+        "candidate_products": 4405,
+        "customers": 5224,
+        "future_customers": 1259,
+        "future_identified_lines": 39870,
+        "history_analytics_lines": 820859,
+        "history_identified_lines": 631871,
+        "interactions": 387138
+      },
+      "history_max": "2011-08-31 17:30:00",
+      "distinct_future_pairs": 37088
+    }
+  },
+  "bundle_sha256": {
+    "data/processed/snapshots/test-20111101-bcbe73b35f5b-1cfa8347816f/manifest.json": "6eaf7940daeebbdd207329061560d885778dbc0e87660a838dda7a2049a911a2",
+    "data/processed/snapshots/test-20111101-bcbe73b35f5b-1cfa8347816f/interactions.parquet": "4ed28c247dc02572c3fcafb65ee1f9164c581739c888e89d84c9fc23ae7eaa87",
+    "data/processed/snapshots/test-20111101-bcbe73b35f5b-1cfa8347816f/customers.parquet": "7d2a1e8f2ce7b4a00893119bcb2534e48e6d4ebad400f31ea02a27812a34dee8",
+    "data/processed/snapshots/test-20111101-bcbe73b35f5b-1cfa8347816f/products.parquet": "53b6b11b00ff3d454155bfd667a273542d5c39d15d9fddcfc901909dac08ba11",
+    "data/processed/snapshots/test-20111101-bcbe73b35f5b-1cfa8347816f/analytics_sales.parquet": "c71322dc31e8acac557973e40ffe2678f25ac99020a149e8e94825d20bedc5bc",
+    "data/processed/snapshots/test-20111101-bcbe73b35f5b-1cfa8347816f/adjustments.parquet": "4aa9bdc1b5cb06dea2b6b3baa9503cc1add265ad6267cbf330d83be867b7f7d5",
+    "data/processed/outcomes/test-20111101-bcbe73b35f5b-1cfa8347816f/labels.parquet": "2f3cf7395f7991ad4554ca74547b84b3b8d72acd2887d94251490e24b09b6e65",
+    "artifacts/test-20111101-bcbe73b35f5b-1cfa8347816f/popularity/metadata.json": "7feb164331c179b3b37ebe992220d31e083a718513cdb0650cb6ab3b8231d38b",
+    "artifacts/test-20111101-bcbe73b35f5b-1cfa8347816f/itemcf/metadata.json": "dd13d6bb0c33b1554aa09653004c9a897e036c31d095c61d455906ef08561d26",
+    "artifacts/test-20111101-bcbe73b35f5b-1cfa8347816f/itemcf/similarity.npz": "fac3b9b860f262eb78d75301dd818c014731817360e9fec430950d394e17a4ca",
+    "artifacts/test-20111101-bcbe73b35f5b-1cfa8347816f/als/metadata.json": "9418b1e40b75d1338d40ca8d0b35706778808c640af1808b0b55e5c868207a68",
+    "artifacts/test-20111101-bcbe73b35f5b-1cfa8347816f/als/als_model.npz": "44d62351a93fefcb7d6288a7b99d998c428cdb7b3fd244f8d28096e688b9af94",
+    "data/processed/snapshots/validation-20110901-bcbe73b35f5b-b995de65bce5/manifest.json": "e7282c0f511292c91936fd6bfd02f846d45b99635a5a9f821b7035d3cde89859",
+    "data/processed/snapshots/validation-20110901-bcbe73b35f5b-b995de65bce5/interactions.parquet": "68c8555ac8f583639920d3f67ced86d917cb023890c730d8256371f1768a8969",
+    "data/processed/snapshots/validation-20110901-bcbe73b35f5b-b995de65bce5/customers.parquet": "758390cd393a98a2a5359ce839bb0a5ebe8fd9b2ee92f7187af29e947c88bde0",
+    "data/processed/snapshots/validation-20110901-bcbe73b35f5b-b995de65bce5/products.parquet": "144315d073a680a94248684ac692146cac7c45831692bf7baa8c5255d8261a88",
+    "data/processed/snapshots/validation-20110901-bcbe73b35f5b-b995de65bce5/analytics_sales.parquet": "a33faa2f0e799a261a8f4e5be452169e1a934e72e9746af24a19a607c1c9a03e",
+    "data/processed/snapshots/validation-20110901-bcbe73b35f5b-b995de65bce5/adjustments.parquet": "dbe5661148d9d2fd07f678c53fa3adf5c7030f41d19fd2d20596ef3061bc9b84",
+    "data/processed/outcomes/validation-20110901-bcbe73b35f5b-b995de65bce5/labels.parquet": "beaf8c58ec33eed62962da2b8c9568718b7096e957cf5b5e86b91b9ec23be466",
+    "artifacts/validation-20110901-bcbe73b35f5b-b995de65bce5/popularity/metadata.json": "6e6e015915173776610ccfb2db1b6a76afd2e06a5b09160c48ef031fa79d8a7e",
+    "artifacts/validation-20110901-bcbe73b35f5b-b995de65bce5/itemcf/metadata.json": "05e83595b3a0102477260462259291693f2c4f537ff2a8b1407fb9c99e1179c4",
+    "artifacts/validation-20110901-bcbe73b35f5b-b995de65bce5/itemcf/similarity.npz": "820a97098061690e59d9ff36a243db7d8700129e458e6479614e39334ab75164",
+    "artifacts/validation-20110901-bcbe73b35f5b-b995de65bce5/als/metadata.json": "9f46178a6eb6e5afa1952dcd3882b953505144153b43dc8273e39515791ce4b9",
+    "artifacts/validation-20110901-bcbe73b35f5b-b995de65bce5/als/als_model.npz": "3feb0458c0ece37796da99f99653dc9da71fdfe8c05d43c2011b0c8a28988ce2"
+  },
+  "model_card_matches_frozen_reports": true,
+  "screenshots": {
+    "customers-desktop.png": {
+      "width": 1440,
+      "height": 2480,
+      "bytes": 185477
+    },
+    "customers-mobile.png": {
+      "width": 390,
+      "height": 3714,
+      "bytes": 140562
+    },
+    "evaluation-desktop.png": {
+      "width": 1440,
+      "height": 2105,
+      "bytes": 121434
+    },
+    "evaluation-mobile.png": {
+      "width": 390,
+      "height": 2227,
+      "bytes": 81190
+    },
+    "overview-desktop.png": {
+      "width": 1440,
+      "height": 2072,
+      "bytes": 128718
+    },
+    "overview-mobile.png": {
+      "width": 390,
+      "height": 2654,
+      "bytes": 90896
+    },
+    "products-desktop.png": {
+      "width": 1440,
+      "height": 1328,
+      "bytes": 91428
+    },
+    "products-mobile.png": {
+      "width": 390,
+      "height": 2891,
+      "bytes": 87939
+    },
+    "quality-desktop.png": {
+      "width": 1440,
+      "height": 2763,
+      "bytes": 189905
+    },
+    "quality-mobile.png": {
+      "width": 390,
+      "height": 3389,
+      "bytes": 128273
+    },
+    "replay-before-reveal-desktop.png": {
+      "width": 1440,
+      "height": 2170,
+      "bytes": 158779
+    },
+    "replay-desktop.png": {
+      "width": 1440,
+      "height": 3594,
+      "bytes": 217024
+    },
+    "replay-mobile.png": {
+      "width": 390,
+      "height": 2974,
+      "bytes": 113414
+    }
+  },
+  "Docker_Compose": "blocked_no_Docker_CLI",
+  "checkout_base_commit": "11a79da86d235d3f767133b1547322a5ccec9962",
+  "working_branch": "codex/v1-compose-verification",
+  "release_commit_verified": false,
+  "runtime": {
+    "os": "Windows 11 Pro 22H2",
+    "build": "22621.2134",
+    "python": "3.12.14",
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "4"
+  },
+  "local_checks": {
+    "pytest": {
+      "passed": 11,
+      "warnings": 1,
+      "warning": "Starlette AnyIO BlockingPortal deprecation"
+    },
+    "ruff": "passed: src tests scripts",
+    "compile": "passed: src scripts",
+    "api_http": {
+      "status": "passed",
+      "base_url": "http://127.0.0.1:8766",
+      "checks": [
+        "/health: HTTP 200",
+        "/ui/: HTTP 200",
+        "/ui/app.js: HTTP 200",
+        "/ui/style.css: HTTP 200",
+        "/ui/favicon.svg: HTTP 200",
+        "/snapshots: HTTP 200",
+        "/customers/12384?snapshot=test: HTTP 200",
+        "/recommendations?customer_id=12384&snapshot=test&k=10&model=selected: HTTP 200",
+        "/recommendations?customer_id=12384&snapshot=test&k=10&model=popularity: HTTP 200",
+        "/recommendations?customer_id=12384&snapshot=test&k=10&model=itemcf: HTTP 200",
+        "/recommendations?customer_id=12384&snapshot=test&k=10&model=als: HTTP 200",
+        "/recommendations/new?snapshot=test&k=10: HTTP 200",
+        "/recommendations?customer_id=12384&snapshot=test&k=10&format=csv: HTTP 200",
+        "/replay/outcomes?customer_id=12384&snapshot=test: HTTP 200",
+        "/recommendations?customer_id=12384&snapshot=test&k=10&model=selected: HTTP 200",
+        "/evaluations?snapshot=test: HTTP 200",
+        "/overview?snapshot=test: HTTP 200",
+        "/products?snapshot=test&limit=10: HTTP 200",
+        "/products/85099B/similar?snapshot=test: HTTP 200",
+        "/customers/12384?snapshot=validation: HTTP 200",
+        "/recommendations?customer_id=12384&snapshot=validation&k=10&model=selected: HTTP 200",
+        "/recommendations?customer_id=12384&snapshot=validation&k=10&model=popularity: HTTP 200",
+        "/recommendations?customer_id=12384&snapshot=validation&k=10&model=itemcf: HTTP 200",
+        "/recommendations?customer_id=12384&snapshot=validation&k=10&model=als: HTTP 200",
+        "/recommendations/new?snapshot=validation&k=10: HTTP 200",
+        "/recommendations?customer_id=12384&snapshot=validation&k=10&format=csv: HTTP 200",
+        "/replay/outcomes?customer_id=12384&snapshot=validation: HTTP 200",
+        "/recommendations?customer_id=12384&snapshot=validation&k=10&model=selected: HTTP 200",
+        "/evaluations?snapshot=validation: HTTP 200",
+        "/overview?snapshot=validation: HTTP 200",
+        "/products?snapshot=validation&limit=10: HTTP 200",
+        "/products/47566/similar?snapshot=validation: HTTP 200",
+        "/data-quality: HTTP 200",
+        "/evaluations/errors: HTTP 200",
+        "/recommendations?customer_id=unknown-id&snapshot=test: HTTP 404",
+        "/recommendations?customer_id=12384&snapshot=unknown: HTTP 404",
+        "/recommendations?customer_id=12384&k=0: HTTP 422",
+        "/recommendations?customer_id=12384&k=11: HTTP 422",
+        "/recommendations/new?k=11: HTTP 422"
+      ]
+    },
+    "ui_controller": "passed: six pages, explicit new customer, ALS, reveal gating, snapshot switch and 404 recovery",
+    "Chrome": {
+      "status": "passed",
+      "desktop": "1440x900",
+      "mobile": "390x844",
+      "pages": 6,
+      "outcome_requests_after_reveal": 1,
+      "unexpected_errors": [],
+      "flows": [
+        "CSV download",
+        "new customer",
+        "404 recovery",
+        "snapshot test to validation",
+        "reveal gating",
+        "mobile drawer and Escape/inert",
+        "no page-level horizontal overflow"
+      ]
+    },
+    "video": {
+      "duration_seconds": 120.32,
+      "codec": "VP8",
+      "resolution": "1280x720",
+      "fps": 25,
+      "audio": "none; on-screen captions",
+      "bytes": 7543667,
+      "sample_frame_visually_inspected": true
+    }
+  },
+  "compose_verification": {
+    "status": "blocked",
+    "reason": "Docker CLI is unavailable; see docs/docker_setup.md",
+    "Docker_commands_executed": false,
+    "OS_requirement_met": false,
+    "firmware_virtualization": true,
+    "SLAT": true,
+    "VirtualMachinePlatform": "disabled",
+    "Microsoft-Windows-Subsystem-Linux": "disabled",
+    "WSL_status_exit": 50,
+    "LanmanServer": "Running/Automatic"
+  },
+  "GitHub_rechecked": {
+    "PR15": {
+      "merged": true,
+      "merge_commit": "4d6751f6220769a06f5efae5c1c7ce411193ad25",
+      "head": "d834e15c4b81bfdd6767c5fa75dcae0b21767509",
+      "CI_run": 37348576246,
+      "conclusion": "success"
+    },
+    "main_at_session_start": {
+      "commit": "11a79da86d235d3f767133b1547322a5ccec9962",
+      "CI_run": 37349670227,
+      "conclusion": "success"
+    }
+  }
+}

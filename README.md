@@ -4,7 +4,7 @@ RetailMind ranks up to 10 products for an identified retail customer at a histor
 
 ## Current status
 
-The data pipeline, two cutoff snapshots, validation selection, frozen test evaluation, model card, error analysis and FastAPI are implemented. The six-page UI at `/ui/` follows `DESIGN.md` and `RetailMind_Frontend_Brief.md`; its real API flows were checked in Chrome at desktop and mobile widths, including snapshot switching and outcome reveal. [Designed-dashboard PR #14](https://github.com/thaitrongdang/RetailMind/pull/14) was merged as `bab9cdc`, and [merged-main CI](https://github.com/thaitrongdang/RetailMind/actions/runs/37346331288) passed. A captioned real-data walkthrough is in [docs/demo/](docs/demo/). The Docker image build and API import passed on GitHub Actions; local Compose with real bundles remains unverified because Docker is unavailable on this host. Public hosting and business impact are not claimed.
+The data pipeline, two cutoff snapshots, validation selection, frozen test evaluation, model card, error analysis and FastAPI are implemented. The six-page UI at `/ui/` follows `DESIGN.md` and `RetailMind_Frontend_Brief.md`; its real API flows were checked in Chrome at desktop and mobile widths, including snapshot switching and outcome reveal. [Designed-dashboard PR #14](https://github.com/thaitrongdang/RetailMind/pull/14) was merged as `bab9cdc`; [demo PR #15](https://github.com/thaitrongdang/RetailMind/pull/15) was merged as `4d6751f`, and [checkpoint-main CI](https://github.com/thaitrongdang/RetailMind/actions/runs/37349670227) passed on `11a79da`. A captioned real-data walkthrough is in [docs/demo/](docs/demo/). The Docker image build and API import passed on GitHub Actions; Compose with real bundles remains unverified because this host needs a supported Windows release, modern WSL and Docker. See [the measured prerequisites and setup guide](docs/docker_setup.md). No `v1.0.0` release has been created.
 
 ## Dataset and protocol
 
@@ -58,9 +58,11 @@ $env:OMP_NUM_THREADS = '4'
 .\.venv\Scripts\uvicorn.exe retailmind.api:app --host 127.0.0.1 --port 8000
 ```
 
-Open the [six-page dashboard](http://127.0.0.1:8000/ui/) or [interactive API docs](http://127.0.0.1:8000/docs). The dashboard uses the real API, including snapshot switching, model comparison, explicit new-customer recommendations, replay with separately revealed outcomes and CSV export. The written design reference is interpreted for this product; no pixel-exact source screen is claimed. To call the API directly:
+Open the [six-page dashboard](http://127.0.0.1:8000/ui/) or [interactive API docs](http://127.0.0.1:8000/docs). The dashboard uses the real API, including snapshot switching, model comparison, explicit new-customer recommendations, replay with separately revealed outcomes and CSV export. The written design reference is interpreted for this product; no pixel-exact source screen is claimed.
 
 On the currently restored machine, the locked CPython 3.12 environment is in ignored `.uv-cache/venv`. Until CPython and uv are put on PATH again, start the API with `& .\.uv-cache\venv\Scripts\uvicorn.exe retailmind.api:app --host 127.0.0.1 --port 8000`, and run checks with `& .\.uv-cache\venv\Scripts\python.exe -m pytest tests -q` and `& .\.uv-cache\venv\Scripts\ruff.exe check src tests`.
+
+To call the API directly:
 
 ```powershell
 Invoke-RestMethod 'http://127.0.0.1:8000/health'
@@ -69,14 +71,24 @@ Invoke-RestMethod 'http://127.0.0.1:8000/recommendations/new?snapshot=test&k=10'
 Invoke-RestMethod 'http://127.0.0.1:8000/replay/outcomes?customer_id=12384&snapshot=test'
 ```
 
-The API also exposes `/snapshots`, `/customers/{id}`, `/products`, `/products/{id}/similar`, `/overview`, `/data-quality`, `/evaluations` and `/evaluations/errors`. `format=csv` works on recommendations and evaluations. Unknown customers return 404; explicit new-customer mode uses Popularity. Invalid query parameters return 422, unknown snapshot 404 and missing model/data 503. Every response has a request ID. The recommendation loader never imports outcome labels; only `/replay/outcomes` reads them.
+The API also exposes `/snapshots`, `/customers/{id}`, `/products`, `/products/{id}/similar`, `/overview`, `/data-quality`, `/evaluations` and `/evaluations/errors`. Recommendation `k` is from 1 through 10; requesting 11 returns 422. `format=csv` works on recommendations and evaluations. Unknown customers return 404; explicit new-customer mode uses Popularity. Invalid query parameters return 422, unknown snapshot 404 and missing model/data 503. Every response has a request ID. The recommendation loader never imports outcome labels; only `/replay/outcomes` reads them.
 
 ## Container packaging
 
-After generating local `data/processed` and `artifacts` bundles, `docker compose up --build` starts the API on local port 8000 with read-only mounts for both artifact directories. GitHub Actions has built the image and imported the API. Docker is not installed on the original development machine, so a Compose launch with the real mounted bundles still requires verification on a Docker host. No raw source workbook is copied into the image.
+After generating local `data/processed` and `artifacts` bundles, `docker compose up --build --detach --wait` starts the API on loopback port 8000 with read-only mounts for both artifact directories. Missing mount source directories are rejected. The healthcheck requires both snapshots to be ready. GitHub Actions has built the image and imported the API; the real-bundle Compose path remains pending on a Docker host. No raw source workbook is copied into the image.
+
+See [Docker setup and real-bundle acceptance](docs/docker_setup.md) for this machine's OS/WSL prerequisites. On the exact clean release candidate, run:
+
+```powershell
+& .\.uv-cache\venv\Scripts\python.exe scripts/verify_compose.py --require-clean --output .uv-cache/compose_verification.json
+```
+
+The script builds its own Compose verification project, checks Linux container health and read-only mounts, compares bundle and serving-file hashes inside the container, then exercises the real HTTP flows. A missing CLI/engine returns `blocked`, exit code 1. It records commit and image IDs; a successful host-only smoke test cannot satisfy this container gate. The Docker-dependent stages are unexecuted on the current host.
 
 ## Verification and performance
 
 A fresh `uv sync --locked --python 3.11 --extra dev` into `.venv_clean` installed 37 packages; 11 fixture tests and Ruff lint passed locally. The 200-request sequential loopback benchmark on Windows 10, CPython 3.11.15, four logical CPUs and one Uvicorn worker measured 32.264 ms p50, 109.029 ms p95, and 2,385.166 ms startup to ready. It used 20 deterministic historical customers, 20 warmups and top-10 recommendations with evidence; it is not a concurrency or UI benchmark. The method and raw summary are in [api_benchmark.json](reports/api_benchmark.json). Rerun with `python scripts/benchmark_api.py` after bundles exist. With the API listening on port 8000, set `$env:RETAILMIND_API_URL = 'http://127.0.0.1:8000'` and run `node scripts/smoke_ui_logic.cjs` to check all six page controllers against real API responses; it is not a visual browser test.
 
 See [release_readiness.md](docs/release_readiness.md), [screenshots](docs/screenshots/), [walkthrough](docs/demo/retailmind-walkthrough.webm), [case_study.md](docs/case_study.md), [demo_script.md](docs/demo_script.md), [api_contract.md](docs/api_contract.md), [architecture.md](docs/architecture.md), [data_dictionary.md](docs/data_dictionary.md), [decisions.md](docs/decisions.md), [progress.md](docs/progress.md), [learning_path.md](docs/learning_path.md) and [code_walkthrough.md](docs/code_walkthrough.md). The UI consumes this API; recommendation logic stays in the service.
+
+For a running real-bundle API, `python scripts/smoke_api.py --base-url http://127.0.0.1:8000 --output .uv-cache/api_verification.json` verifies both snapshots, three models, CSV, cutoff bounds, frozen-report consistency and failures. The 2026-10-07 local acceptance summary is in [verification_20261007.json](reports/verification_20261007.json); it does not claim a Docker run or rerun the final evaluation.

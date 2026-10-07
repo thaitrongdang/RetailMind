@@ -4,9 +4,29 @@ services:
     ports:
       - "127.0.0.1:8000:8000"
     volumes:
-      - ./data/processed:/app/data/processed:ro
-      - ./artifacts:/app/artifacts:ro
+      - type: bind
+        source: ./data/processed
+        target: /app/data/processed
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ./artifacts
+        target: /app/artifacts
+        read_only: true
+        bind:
+          create_host_path: false
       - ./logs:/app/logs
     environment:
       OPENBLAS_NUM_THREADS: "1"
       OMP_NUM_THREADS: "4"
+    healthcheck:
+      test:
+        - CMD
+        - /app/.venv/bin/python
+        - -c
+        - "import json, urllib.request; r=json.load(urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=5)); assert r['status']=='ready' and r['loaded_snapshots']==['test','validation']"
+      interval: 10s
+      timeout: 8s
+      start_period: 30s
+      retries: 12
