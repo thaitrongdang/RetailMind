@@ -1,6 +1,6 @@
 # V1 release readiness
 
-This checklist combines measured offline results, local designed-dashboard checks, and merged-main evidence through `11a79da`, rechecked on 2026-10-07. The current Compose-verification branch has new local checks recorded in `reports/verification_20261007.json`; its PR/CI status is recorded separately in `docs/progress.md`. [Issue #10](https://github.com/thaitrongdang/RetailMind/issues/10) tracks remaining acceptance work. No V1 release has been tagged.
+This checklist combines measured offline results, local designed-dashboard checks, and merged-main evidence through `eab0a79`, rechecked on 2026-10-07. Compose verification preparation and the top-ten API correction were merged in PR #18; local checks are recorded in `reports/verification_20261007.json`. [Issue #10](https://github.com/thaitrongdang/RetailMind/issues/10) and [Issue #17](https://github.com/thaitrongdang/RetailMind/issues/17) track outstanding real-bundle acceptance. No V1 release has been tagged.
 
 | Acceptance item | State | Evidence or next action |
 | --- | --- | --- |
@@ -13,10 +13,10 @@ This checklist combines measured offline results, local designed-dashboard check
 | Supplied written visual design and responsive acceptance | `done` locally | `DESIGN.md` and `RetailMind_Frontend_Brief.md` adapted to the six-page app; Chrome checked 1440×900 and 390×844 with no page overflow. Written reference is not a pixel-exact Figma screen. |
 | Browser visual interaction and screenshots | `done` locally | Headless Chrome exercised page navigation, outcome reveal and snapshot switching with no console/page errors. Thirteen real-data screenshots are in `docs/screenshots/`. Cross-browser audit remains outside this check. |
 | Fresh Python environment, fixture tests and lint | `done` locally | Recovery sync of 37 locked packages under CPython 3.12.14; 11 tests and Ruff/compile passed again on 2026-10-07. Old `.venv` paths are broken after reinstall. |
-| GitHub CI on merged checkpoint main | `done` | [CI run 37349670227](https://github.com/thaitrongdang/RetailMind/actions/runs/37349670227) succeeded on `11a79da`; remote state rechecked on 2026-10-07. |
+| GitHub CI on merged implementation main | `done` | [CI run 37646931964](https://github.com/thaitrongdang/RetailMind/actions/runs/37646931964) succeeded on `eab0a79`; local main and origin/main matched cleanly. |
 | Designed-dashboard PR CI | `done` | [PR #14](https://github.com/thaitrongdang/RetailMind/pull/14) passed `fixture-tests` and `container-build` on final head `a928748` in [run 37346100259](https://github.com/thaitrongdang/RetailMind/actions/runs/37346100259), then squash-merged as `bab9cdc`. |
 | Local API benchmark | `done` | `reports/api_benchmark.json`; p95 109.029 ms over 200 sequential loopback requests, 20 warmups, one worker. |
-| Docker image build and API import | `done` in CI | [CI run 37646269053](https://github.com/thaitrongdang/RetailMind/actions/runs/37646269053) passed Compose configuration validation, image build and API import on PR #18 head `d0ca608`. This CI job has no real data mounts. |
+| Docker image build and API import | `done` in CI | [CI run 37646931964](https://github.com/thaitrongdang/RetailMind/actions/runs/37646931964) passed Compose configuration validation, image build and API import on merged `eab0a79`. This CI job has no real data mounts. |
 | Compose launch with real mounted bundles | `blocked` | Docker unavailable; Windows 11 22H2 build 22621 is below current Docker Desktop requirements; WSL/VMP features disabled. Follow `docs/docker_setup.md`, then run `scripts/verify_compose.py --require-clean` on the release candidate. Preflight returned blocked on 2026-10-07; Docker-dependent stages have not run. |
 | Captioned demo video | `done` locally | `docs/demo/retailmind-walkthrough.webm` records the real local API and six-page UI; silent captions, VP8 1280×720. |
 | GitHub v1.0.0 release | `blocked` | Real-bundle Compose launch remains unverified. Verify all applicable gates and CI on the exact clean release commit before tagging. No tag/release exists. Public hosting is optional. |
