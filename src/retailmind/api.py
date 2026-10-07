@@ -162,7 +162,7 @@ def create_app(config: ProjectConfig | None = None) -> FastAPI:
             raise HTTPException(404, "customer_not_found") from None
 
     @app.get("/recommendations", response_model=RecommendationResponse)
-    def recommendations(request: Request, customer_id: str, snapshot: str = "test", k: int = Query(10, ge=1, le=20), model: Literal["selected", "itemcf", "als", "popularity"] = "selected", format: Literal["json", "csv"] = "json"):
+    def recommendations(request: Request, customer_id: str, snapshot: str = "test", k: int = Query(10, ge=1, le=10), model: Literal["selected", "itemcf", "als", "popularity"] = "selected", format: Literal["json", "csv"] = "json"):
         service = get_snapshot(request, snapshot)
         try:
             result = service.recommend(customer_id, k, model)
@@ -180,7 +180,7 @@ def create_app(config: ProjectConfig | None = None) -> FastAPI:
         return result
 
     @app.get("/recommendations/new", response_model=RecommendationResponse)
-    def new_customer(request: Request, snapshot: str = "test", k: int = Query(10, ge=1, le=20), format: Literal["json", "csv"] = "json"):
+    def new_customer(request: Request, snapshot: str = "test", k: int = Query(10, ge=1, le=10), format: Literal["json", "csv"] = "json"):
         service = get_snapshot(request, snapshot)
         try:
             result = service.recommend(None, k)

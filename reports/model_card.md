@@ -42,3 +42,7 @@ A future purchase mismatch does not mean the customer saw or rejected a recommen
 ## Reproduction
 
 Run the README pipeline in order. `retailmind train --snapshot validation` selects and records the contract; `retailmind train --snapshot test` uses the frozen selection and refuses to overwrite an existing test report. Bundles carry snapshot ID, mapping hashes, source hash, parameter settings and dependency versions. The public API loads these bundles read-only. Never expose model files or future labels through the recommendation path.
+
+Recommendation HTTP requests enforce `1 <= k <= 10` for historical and explicit new-customer modes. `scripts/smoke_api.py` checks loaded bundle versions, both snapshots, cutoff bounds and API metrics against the already frozen reports. This serving check does not select parameters or recompute test metrics. The 2026-10-07 audit in `reports/verification_20261007.json` checked the source hash, full snapshot timestamp bounds, mappings and this card's metric table.
+
+The separately measured sequential HTTP benchmark is in `reports/api_benchmark.json`, with its original machine/runtime metadata and scope. Current real-bundle Docker Compose acceptance is pending; `docs/docker_setup.md` records the Windows/WSL/Docker prerequisites and the clean-commit verification command. Local HTTP/browser checks and CI image import do not establish real-bundle container readiness.

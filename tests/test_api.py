@@ -57,6 +57,9 @@ def test_api_recommendation_contract_and_failures(tmp_path, monkeypatch):
         assert client.get("/recommendations/new").json()["reason_code"] == "explicit_new_customer"
         assert client.get("/recommendations", params={"customer_id": "typo"}).status_code == 404
         assert client.get("/recommendations", params={"customer_id": "C1", "k": 0}).status_code == 422
+        assert client.get("/recommendations", params={"customer_id": "C1", "k": 10}).status_code == 200
+        assert client.get("/recommendations", params={"customer_id": "C1", "k": 11}).status_code == 422
+        assert client.get("/recommendations/new", params={"k": 11}).status_code == 422
         assert client.get("/recommendations", params={"customer_id": "C1", "snapshot": "wrong"}).status_code == 404
         csv_response = client.get("/recommendations", params={"customer_id": "C1", "format": "csv"})
         assert csv_response.status_code == 200

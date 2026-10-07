@@ -8,8 +8,8 @@ Base URL for local development: `http://127.0.0.1:8000`. OpenAPI is at `/docs` a
 | `/snapshots` | none | Only successfully loaded snapshots, with cutoff, outcome end and counts. |
 | `/overview` | `snapshot=test|validation` | Pre-cutoff aggregate KPIs, monthly, country and top-product tables. Includes anonymous sales. |
 | `/customers/{customer_id}` | `snapshot`, `history_limit=1..100` | Pre-cutoff customer RFM profile and recent lines. |
-| `/recommendations` | `customer_id`, `snapshot`, `k=1..20`, `model=selected|itemcf|als|popularity`, `format=json|csv` | Ranked list for a known historical customer. |
-| `/recommendations/new` | `snapshot`, `k=1..20`, `format=json|csv` | Popularity ranking for explicit new-customer mode. |
+| `/recommendations` | `customer_id`, `snapshot`, `k=1..10`, `model=selected|itemcf|als|popularity`, `format=json|csv` | Ranked list for a known historical customer. |
+| `/recommendations/new` | `snapshot`, `k=1..10`, `format=json|csv` | Popularity ranking for explicit new-customer mode. |
 | `/products` | `snapshot`, optional literal search `q`, `limit=1..100` | Pre-cutoff product search and popularity. |
 | `/products/{stock_code}/similar` | `snapshot`, `k=1..20` | ItemCF similarity neighbors from that snapshot. |
 | `/evaluations` | `snapshot`, `format=json|csv` | Previously computed offline report, frozen selection and model versions. |
