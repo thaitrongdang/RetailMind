@@ -77,7 +77,7 @@ The API also exposes `/snapshots`, `/customers/{id}`, `/products`, `/products/{i
 
 After generating local `data/processed` and `artifacts` bundles, `docker compose up --build --detach --wait` starts the API on loopback port 8000 with read-only mounts for both artifact directories. Missing mount source directories are rejected. The healthcheck requires both snapshots to be ready. GitHub Actions has built the image and imported the API; the real-bundle Compose path remains pending on a Docker host. No raw source workbook is copied into the image.
 
-See [Docker setup and real-bundle acceptance](docs/docker_setup.md) for this machine's OS/WSL prerequisites. On the exact clean release candidate, run:
+See [Docker setup and real-bundle acceptance](docs/docker_setup.md) for this machine's OS/WSL prerequisites. If a Windows upgrade is unavailable, follow [the Docker-host handoff](docs/docker_host_handoff.md) to privately transfer the existing bundles, verify their hashes and run acceptance on another supported host. On the exact clean release candidate, run:
 
 ```powershell
 & .\.uv-cache\venv\Scripts\python.exe scripts/verify_compose.py --require-clean --output .uv-cache/compose_verification.json
