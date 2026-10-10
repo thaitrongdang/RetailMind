@@ -26,3 +26,11 @@ This checklist combines measured offline results, local designed-dashboard check
 ## Resume gate
 
 Once Docker is installed and its Linux engine is running, run the clean-commit Compose command from `docs/docker_setup.md`. Confirm `status=passed`, both loaded snapshots, read-only mount/hash checks, `/ui/`, rankings and expected API errors. Run the UI controller/browser flow against port 8000 and preserve the JSON evidence with commit and image IDs. Documentation-only readiness updates may require a new candidate commit; recheck that final clean commit before creating `v1.0.0`. The local 2026-10-07 report explicitly records `release_commit_verified=false`.
+
+## 2026-10-11 handoff checkpoint
+
+The owner reports no Windows upgrade is offered. Local Windows remains build 22621 and Docker CLI is absent. PR #19 is merged as `aa717e03ada08c0ba2e3c52281257e426f332c5e`; [main CI run 37647681830](https://github.com/thaitrongdang/RetailMind/actions/runs/37647681830) is successful, rechecked on 2026-10-11. This is fixture/image CI, not real-bundle Compose acceptance. GitHub's release list is still empty.
+
+The remaining host-dependent steps are explicitly `blocked`: select/access a supported Docker host, privately transfer the existing bundles, execute `scripts/verify_compose.py --require-clean`, verify the UI against that container, and review evidence/CI for the final clean release commit. [docker_host_handoff.md](docker_host_handoff.md) provides the commands and required owner inputs. Transfer hashes and local API/browser checks cannot mark these gates passed. No release is authorized by preparation alone.
+
+Independent checks were rerun on the handoff working branch: 11 tests, Ruff/compile/syntax, 39 real-bundle HTTP checks, UI controllers and portable Chrome desktop/mobile flow passed. Draft archive verification checked 24 source files and rejected hash/commit/dirty-checkout failures. Compose preflight again returned blocked for missing Docker. See `reports/verification_20261011.json`; it explicitly leaves release-commit verification false and records the browser script's initial transition-wait failure and corrected rerun. These local checks do not supersede the pending container gate.

@@ -1,0 +1,55 @@
+{
+  "checked_on_local_date": "2026-10-11",
+  "local_timezone": "Asia/Bangkok",
+  "scope": "independent_local_checks_and_Docker_host_handoff",
+  "base_commit": "aa717e03ada08c0ba2e3c52281257e426f332c5e",
+  "branch": "codex/v1-docker-host-handoff",
+  "working_tree_clean_during_checks": false,
+  "environment": {
+    "os": "Windows 11 Pro build 22621",
+    "python_used": "3.12.14",
+    "global_python": "3.14, outside the package's supported range",
+    "api_base_url": "http://127.0.0.1:8767",
+    "docker_cli_available": false
+  },
+  "local_checks": {
+    "pytest": {"passed": 11, "deprecation_warnings": 1},
+    "ruff": "passed",
+    "scripts_compile": "passed",
+    "browser_script_syntax": "passed",
+    "git_diff_check": "passed",
+    "real_bundle_http_checks": 39,
+    "ui_controllers": "passed",
+    "chrome_browser": {
+      "status": "passed_after_script_wait_fix",
+      "initial_failure": "script checked drawer position before its closing transition ended",
+      "pages": 6,
+      "desktop": "1440x900",
+      "mobile": "390x844",
+      "snapshot_switch": "test_to_validation",
+      "outcome_requests_after_reveal": 1,
+      "unexpected_errors": [],
+      "screenshots": 13
+    },
+    "bundle_transfer_draft": {
+      "files": 24,
+      "bundle_bytes": 24616593,
+      "archive_bytes": 23807299,
+      "archive_sha256": "e59abc91e08161ef47775e6ecac852763af464624cd7c41ff067fd0a9cf91d94",
+      "archive_member_hashes_match_source": true,
+      "negative_cases_rejected": ["bundle_hash_mismatch", "archive_hash_mismatch", "commit_mismatch", "dirty_checkout"],
+      "clean_release_transfer": false,
+      "remote_transfer_executed": false
+    }
+  },
+  "compose": {
+    "status": "blocked",
+    "preflight_exit_code": 1,
+    "reason": "Docker CLI unavailable",
+    "container_started": false,
+    "real_bundle_acceptance_executed": false
+  },
+  "frozen_metrics_changed": false,
+  "release_commit_verified": false,
+  "v1_0_0_created": false
+}

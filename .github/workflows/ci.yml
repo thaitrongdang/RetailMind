@@ -31,6 +31,7 @@ jobs:
         run: |
           node --check ui/app.js
           node --check scripts/smoke_ui_logic.cjs
+          node --check scripts/smoke_browser.cjs
       - name: Fixture tests
         run: uv run --no-sync pytest tests -q
   container-build:
